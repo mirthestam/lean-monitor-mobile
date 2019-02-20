@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:LeanMobileProto.Converters;assembly=LeanMobileProto"
+             x:Class="LeanMobileProto.App">
+    <Application.Resources>
+        
+        <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+
+        <Color x:Key="ColorPrimary">#000000</Color>
+        <Color x:Key="ColorAccent">#337AB7</Color>
+        <Color x:Key="HeaderBackgroundColor">#F5F5F5</Color>
+        <Color x:Key="HeaderTextColor">#383838</Color>
+        <Color x:Key="ShadedLabelColor">#CFCFCF</Color>
+        <Color x:Key="SeparatorColor">#DDDDDD</Color>
+        <Color x:Key="ChartBackgroundColor">#eeeeee</Color>
+
+        <Color x:Key="EmphazizedPositiveColor">#25965e</Color>
+        <Color x:Key="EmphazizedNegativeColor">#dd7777</Color>
+        <Color x:Key="EmphazizedNeutralColor">#959595</Color>        
+
+        <converters:DecimalColorConverter x:Key="NegativeCurrencyColorConverter"
+                                          NegativeColor="{StaticResource EmphazizedNegativeColor}"/>
+
+        <converters:DecimalColorConverter x:Key="DefaultCurrencyColorConverter"
+                                          NegativeColor="{StaticResource EmphazizedNegativeColor}"
+                                          PositiveColor="{StaticResource EmphazizedPositiveColor}"
+                                          />
+
+        <converters:DecimalDefaultCurrencyConverter x:Key="DefaultCurrencyConverter"/>
+
+        <Style x:Key="HeaderLabelStyle" TargetType="Label">
+            <Style.Setters>
+                <Setter Property="BackgroundColor" Value="{DynamicResource HeaderBackgroundColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource HeaderTextColor}"/>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="HorizontalOptions" Value="Fill"/>                
+            </Style.Setters>
+        </Style>
+
+    </Application.Resources>
+</Application>

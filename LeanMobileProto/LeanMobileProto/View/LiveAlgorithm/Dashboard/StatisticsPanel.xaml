@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeanMobileProto.View.LiveAlgorithm.Dashboard.StatisticsPanel">
+  <ContentView.Content>
+<Grid Margin="5" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0"
+                                       Grid.Column="0"
+                                       HorizontalOptions="Center"
+                                       Text="23.00"/>
+
+                <Label Grid.Row="0"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Center"
+                                       Text="1,000.00"/>
+
+                <Label Grid.Row="0"
+                                       Grid.Column="2"
+                                       HorizontalOptions="Center"
+                                       Text="0,05 %"/>
+
+                <Label Grid.Row="1"
+                                       Grid.Column="0"
+                                       HorizontalOptions="Center"
+                                       TextColor="{StaticResource ShadedLabelColor}"
+                                       Text="Fees"/>
+
+                <Label Grid.Row="1"
+                                       Grid.Column="1"
+                                       HorizontalOptions="Center"
+                                       TextColor="{StaticResource ShadedLabelColor}"
+                                       Text="Net Profit"/>
+
+                <Label Grid.Row="1"
+                                       Grid.Column="2"
+                                       HorizontalOptions="Center"
+                                       TextColor="{StaticResource ShadedLabelColor}"
+                                       Text="Return"/>
+
+            </Grid>
+  </ContentView.Content>
+</ContentView>
