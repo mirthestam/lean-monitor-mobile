@@ -9,5 +9,6 @@
         <ResourceDictionary Source="ColorsDictionary.xaml"/>
         <ResourceDictionary Source="ConvertersDictionary.xaml"/>
         <ResourceDictionary Source="StylesDictionary.xaml"/>
+        <ResourceDictionary Source="ImageDictionary.xaml"/>
     </Application.Resources>
 </Application>

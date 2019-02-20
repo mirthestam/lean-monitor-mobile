@@ -50,16 +50,16 @@
                         Light="#8CC176"
                         Dark="#8CC176"/>
     
+    <extensions:OnTheme x:Key="TabColor"
+                        x:TypeArguments="Color"
+                        Light="#337AB7"
+                        Dark="#C2C2C2"
+                        />
+
     <extensions:OnTheme x:Key="LabelNumberRedColor"
                         x:TypeArguments="Color"
                         Light="#B82C0C"
-                        Dark="#B82C0C"/>
-
-    <extensions:OnTheme x:Key="DashboardIcon"
-                        x:TypeArguments="ImageSource"
-                        Dark="baseline-dashboard-24-dark.png"
-                        Light="baseline-dashboard-24-light.png"
-    />
+                        Dark="#B82C0C"/> 
 
     <!-- TODO: Add ChartBackgroundColor to PGA-->
     <extensions:OnTheme x:Key="ChartBackgroundColor"

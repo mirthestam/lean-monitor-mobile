@@ -39,22 +39,22 @@
             <!-- Tabs -->
             <tabView:TabViewControl HeaderTabTextFontSize="Small"
                                     HeaderBackgroundColor="Transparent"                                    
-                                    HeaderTabTextColor="{DynamicResource ColorAccent}"
+                                    HeaderTabTextColor="{DynamicResource TabColor}"
                                     HeaderSelectionUnderlineColor="{DynamicResource ColorAccent}"                                    
                                     HeaderSelectionUnderlineThickness="3"
                                     VerticalOptions="FillAndExpand"
                                     >
                 <tabView:TabViewControl.ItemSource>
-                    <tabView:TabItem HeaderText="Dashboard" HeaderIcon="{DynamicResource DashboardIcon}" HeaderIconSize="24">                        
+                    <tabView:TabItem HeaderText="Dashboard" HeaderIcon="{StaticResource DashboardIcon}" HeaderIconSize="24">                        
                         <dashboard:DashboardView/>
                     </tabView:TabItem>
-                    <tabView:TabItem HeaderText="Holdings" HeaderIcon="baseline_work_black_24.png" HeaderIconSize="24">
+                    <tabView:TabItem HeaderText="Holdings" HeaderIcon="{StaticResource HoldingsIcon}" HeaderIconSize="24">
                         <holdings:HoldingsView/>
                     </tabView:TabItem>
-                    <tabView:TabItem HeaderText="Orders" HeaderIcon="baseline_swap_horiz_black_24.png" HeaderIconSize="24">
+                    <tabView:TabItem HeaderText="Orders" HeaderIcon="{StaticResource OrdersIcon}" HeaderIconSize="24">
                         <orders:OrdersView/>
                     </tabView:TabItem>
-                    <tabView:TabItem HeaderText="Log" HeaderIcon="baseline_description_black_24.png" HeaderIconSize="24">
+                    <tabView:TabItem HeaderText="Log" HeaderIcon="{StaticResource LogIcon}" HeaderIconSize="24">
                         <StackLayout/>
                     </tabView:TabItem>
                 </tabView:TabViewControl.ItemSource>
