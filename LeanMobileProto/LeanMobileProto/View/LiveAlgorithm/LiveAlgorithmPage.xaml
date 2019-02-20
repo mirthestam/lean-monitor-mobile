@@ -7,6 +7,8 @@
              xmlns:orders="clr-namespace:LeanMobileProto.View.LiveAlgorithm.Orders;assembly=LeanMobileProto"
              xmlns:liveAlgorithm="clr-namespace:LeanMobileProto.View.LiveAlgorithm;assembly=LeanMobileProto"
              xmlns:holdings="clr-namespace:LeanMobileProto.View.LiveAlgorithm.Holdings;assembly=LeanMobileProto"
+             xmlns:extensions="clr-namespace:LeanMobileProto.Extensions;assembly=LeanMobileProto"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
              Title="Sell in May"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              x:Class="LeanMobileProto.View.LiveAlgorithmPage">
@@ -43,7 +45,7 @@
                                     VerticalOptions="FillAndExpand"
                                     >
                 <tabView:TabViewControl.ItemSource>
-                    <tabView:TabItem HeaderText="Dashboard" HeaderIcon="baseline_dashboard_black_24.png" HeaderIconSize="24">
+                    <tabView:TabItem HeaderText="Dashboard" HeaderIcon="{DynamicResource DashboardIcon}" HeaderIconSize="24">                        
                         <dashboard:DashboardView/>
                     </tabView:TabItem>
                     <tabView:TabItem HeaderText="Holdings" HeaderIcon="baseline_work_black_24.png" HeaderIconSize="24">

@@ -2,7 +2,8 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:extensions="clr-namespace:LeanMobileProto.Extensions;assembly=LeanMobileProto">
+             xmlns:extensions="clr-namespace:LeanMobileProto.Extensions;assembly=LeanMobileProto"
+             xmlns:system="clr-namespace:System;assembly=netstandard">
 
     <extensions:OnTheme x:Key="ColorPrimary"
                         x:TypeArguments="Color"
@@ -53,6 +54,12 @@
                         x:TypeArguments="Color"
                         Light="#B82C0C"
                         Dark="#B82C0C"/>
+
+    <extensions:OnTheme x:Key="DashboardIcon"
+                        x:TypeArguments="ImageSource"
+                        Dark="baseline-dashboard-24-dark.png"
+                        Light="baseline-dashboard-24-light.png"
+    />
 
     <!-- TODO: Add ChartBackgroundColor to PGA-->
     <extensions:OnTheme x:Key="ChartBackgroundColor"

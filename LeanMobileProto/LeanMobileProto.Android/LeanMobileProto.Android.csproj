@@ -70,66 +70,6 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_dashboard_black_18.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_dashboard_black_24.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_dashboard_black_36.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_dashboard_black_48.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_stop_white_18.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_stop_white_24.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_stop_white_36.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_stop_white_48.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_warning_white_18.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_warning_white_24.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_warning_white_36.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_warning_white_48.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_dashboard_black_18.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_dashboard_black_24.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_dashboard_black_36.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_dashboard_black_48.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_stop_white_18.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_stop_white_24.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_stop_white_36.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_stop_white_48.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_warning_white_18.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_warning_white_24.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_warning_white_36.png" />
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_warning_white_48.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_dashboard_black_18.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_dashboard_black_24.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_dashboard_black_36.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_dashboard_black_48.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_stop_white_18.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_stop_white_24.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_stop_white_36.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_stop_white_48.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_warning_white_18.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_warning_white_24.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_warning_white_36.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_warning_white_48.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_dashboard_black_18.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_dashboard_black_24.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_dashboard_black_36.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_dashboard_black_48.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_stop_white_18.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_stop_white_24.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_stop_white_36.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_stop_white_48.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_warning_white_18.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_warning_white_24.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_warning_white_36.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_warning_white_48.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_dashboard_black_18.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_dashboard_black_24.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_dashboard_black_36.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_dashboard_black_48.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_stop_white_18.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_stop_white_24.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_stop_white_36.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_stop_white_48.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_warning_white_18.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_warning_white_24.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_warning_white_36.png" />
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_warning_white_48.png" />
     <AndroidResource Include="Resources\drawable\baseline_dashboard_24.xml" />
     <AndroidResource Include="Resources\drawable\baseline_stop_24.xml" />
     <AndroidResource Include="Resources\drawable\baseline_warning_24.xml" />
@@ -166,247 +106,103 @@
     <AndroidResource Include="Resources\drawable\baseline_work_24.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_description_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_description_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_description_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_description_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_receipt_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_receipt_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_receipt_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_receipt_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_work_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_work_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_work_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_work_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_description_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_description_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_description_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_description_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_receipt_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_receipt_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_receipt_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_receipt_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_work_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_work_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_work_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_work_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_description_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_description_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_description_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_description_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_receipt_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_receipt_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_receipt_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_receipt_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_work_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_work_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_work_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_work_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_description_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_description_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_description_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_description_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_receipt_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_receipt_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_receipt_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_receipt_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_work_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_work_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_work_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_work_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_description_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_description_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_description_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_description_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_receipt_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_receipt_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_receipt_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_receipt_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_work_black_18.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_work_black_24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_work_black_36.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_work_black_48.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\baseline_swap_horiz_24.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_swap_horiz_black_18.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-dashboard-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_swap_horiz_black_24.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-dashboard-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_swap_horiz_black_36.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-description-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-hdpi\baseline_swap_horiz_black_48.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-description-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_swap_horiz_black_18.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-swap_horiz-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_swap_horiz_black_24.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-swap_horiz-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_swap_horiz_black_36.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-work-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-mdpi\baseline_swap_horiz_black_48.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\baseline-work-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_swap_horiz_black_18.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-dashboard-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_swap_horiz_black_24.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-dashboard-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_swap_horiz_black_36.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-description-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\baseline_swap_horiz_black_48.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-description-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_swap_horiz_black_18.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-swap_horiz-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_swap_horiz_black_24.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-swap_horiz-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_swap_horiz_black_36.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-work-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxhdpi\baseline_swap_horiz_black_48.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\baseline-work-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_swap_horiz_black_18.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-dashboard-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_swap_horiz_black_24.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-dashboard-24-light.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_swap_horiz_black_36.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-description-24-dark.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\baseline_swap_horiz_black_48.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-description-24-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-swap_horiz-24-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-swap_horiz-24-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-work-24-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\baseline-work-24-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-dashboard-24-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-dashboard-24-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-description-24-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-description-24-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-swap_horiz-24-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-swap_horiz-24-light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-work-24-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\baseline-work-24-light.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
