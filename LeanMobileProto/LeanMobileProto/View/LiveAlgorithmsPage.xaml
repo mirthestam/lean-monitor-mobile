@@ -75,19 +75,19 @@
                                     <Label Grid.Row="1"
                                            Grid.Column="0"
                                            HorizontalOptions="Center"
-                                           TextColor="{StaticResource ShadedLabelColor}"
+                                           TextColor="{StaticResource TextAccentColor}"
                                            Text="Unrealized"/>
 
                                     <Label Grid.Row="1"
                                            Grid.Column="1"
                                            HorizontalOptions="Center"
-                                           TextColor="{StaticResource ShadedLabelColor}"
+                                           TextColor="{StaticResource TextAccentColor}"
                                            Text="Equity"/>
 
                                     <Label Grid.Row="1"
                                            Grid.Column="2"
                                            HorizontalOptions="Center"
-                                           TextColor="{StaticResource ShadedLabelColor}"
+                                           TextColor="{StaticResource TextAccentColor}"
                                            Text="Holdings"/>
                                 </Grid>
                             </Grid>

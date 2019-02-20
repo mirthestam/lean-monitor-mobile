@@ -34,19 +34,19 @@
             <Label Grid.Row="1"
                                        Grid.Column="0"
                                        HorizontalOptions="Center"
-                                       TextColor="{StaticResource ShadedLabelColor}"
+                                       TextColor="{StaticResource TextAccentColor}"
                                        Text="CPU"/>
 
             <Label Grid.Row="1"
                                        Grid.Column="1"
                                        HorizontalOptions="Center"
-                                       TextColor="{StaticResource ShadedLabelColor}"
+                                       TextColor="{StaticResource TextAccentColor}"
                                        Text="Memory"/>
 
             <Label Grid.Row="1"
                                        Grid.Column="2"
                                        HorizontalOptions="Center"
-                                       TextColor="{StaticResource ShadedLabelColor}"
+                                       TextColor="{StaticResource TextAccentColor}"
                                        Text="Uptime"/>
 
         </Grid>

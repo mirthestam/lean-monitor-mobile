@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using LeanMobileProto.Extensions;
 using Xamarin.Forms;
 
 namespace LeanMobileProto.Converters
 {
     public class DecimalColorConverter : IValueConverter
     {
-        public Color PositiveColor { get; set; }
+        public string TextColorKey { get; set; } = "TextColor";
+        public string GreenColorKey { get; set; } = "LabelNumberGreenColor";
+        public string RedColorKey { get; set; } = "LabelNumberRedColor";
 
-        public Color NegativeColor { get; set; }
-
-        public Color NeutralColor { get; set; }
+        public bool UseGreen { get; set; }
+        public bool UseRed { get; set; }
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!(value is decimal amount)) return PositiveColor;            
-            return ConvertDecimal(amount);                        
+            if (!(value is decimal amount)) return GreenColor;
+            return ConvertDecimal(amount);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -29,10 +33,25 @@ namespace LeanMobileProto.Converters
         {
             if (amount == 0)
             {
-                return NeutralColor;
+                return TextColor;
             }
 
-            return amount < 0 ? NegativeColor : PositiveColor;
+            return amount < 0 ? RedColor : GreenColor;
+        }
+
+        private Color TextColor => GetColor(TextColorKey);
+        private Color GreenColor => UseGreen ? GetColor(GreenColorKey) : GetColor(TextColorKey);
+        private Color RedColor => UseRed ? GetColor(RedColorKey) : GetColor(TextColorKey);
+
+        private static Color GetColor(string key)
+        {
+            if (!Application.Current.Resources.TryGetValue(key, out var value))
+                return Color.White;
+
+            if (value is OnTheme<Color> theme)
+                return theme.Current;
+            
+            return (Color) value;
         }
     }
 }

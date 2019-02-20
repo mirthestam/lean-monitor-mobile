@@ -37,8 +37,8 @@
             <!-- Tabs -->
             <tabView:TabViewControl HeaderTabTextFontSize="Small"
                                     HeaderBackgroundColor="Transparent"                                    
-                                    HeaderTabTextColor="{StaticResource ColorAccent}"
-                                    HeaderSelectionUnderlineColor="{StaticResource ColorAccent}"                                    
+                                    HeaderTabTextColor="{DynamicResource ColorAccent}"
+                                    HeaderSelectionUnderlineColor="{DynamicResource ColorAccent}"                                    
                                     HeaderSelectionUnderlineThickness="3"
                                     VerticalOptions="FillAndExpand"
                                     >

@@ -37,24 +37,24 @@
 
                 <Label Grid.Row="0"
                  Grid.Column="0"
-                 TextColor="{DynamicResource ShadedLabelColor}"
+                 TextColor="{DynamicResource TextAccentColor}"
                  Text="Date"/>
 
                 <Label Grid.Row="0"
                  Grid.Column="1"
-                 TextColor="{DynamicResource ShadedLabelColor}"
+                 TextColor="{DynamicResource TextAccentColor}"
                  Text="Symbol"/>
 
                 <Label Grid.Row="0"
                  Grid.Column="2"
                  HorizontalOptions="End"
-                 TextColor="{DynamicResource ShadedLabelColor}"
+                 TextColor="{DynamicResource TextAccentColor}"
                  Text="Quantity"/>
 
                 <Label Grid.Row="0"
                  Grid.Column="3"
                  HorizontalOptions="End"
-                 TextColor="{DynamicResource ShadedLabelColor}"
+                 TextColor="{DynamicResource TextAccentColor}"
                  Text="Type"/>
 
 
