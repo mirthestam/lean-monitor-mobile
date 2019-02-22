@@ -1,11 +1,4 @@
 #!/bin/bash
-
-#light theme
-light_tabs='337AB7'
-
-# dark theme
-dark_tabs='C2C2C2'
-
 export_to_color() {
                
     # Create SVG for this color
@@ -47,7 +40,24 @@ export_from_svg() {
     inkscape --file $1.svg --export-png $2 --export-width $3
 }
 
-# Export all required images here
+# Main Menu
+light_menu='337AB7'
+dark_menu='C2C2C2'
+export_to_color baseline_flash_on light $light_menu 24
+export_to_color baseline_flash_on dark $dark_menu 24
+
+export_to_color baseline_folder light $light_menu 24
+export_to_color baseline_folder dark $dark_menu 24
+
+export_to_color baseline_help light $light_menu 24
+export_to_color baseline_help dark $dark_menu 24
+
+export_to_color baseline_settings light $light_menu 24
+export_to_color baseline_settings dark $dark_menu 24
+
+# Live tabs
+light_tabs='337AB7'
+dark_tabs='C2C2C2'
 export_to_color baseline_dashboard light $light_tabs 24
 export_to_color baseline_dashboard dark $dark_tabs 24
 
@@ -59,4 +69,6 @@ export_to_color baseline_description dark $dark_tabs 24
 
 export_to_color baseline_swap_horiz light $light_tabs 24
 export_to_color baseline_swap_horiz dark $dark_tabs 24
+
+
 
