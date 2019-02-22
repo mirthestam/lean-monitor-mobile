@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using LeanMobileProto.Enums;
+using LeanMobileProto.Model;
 
 namespace LeanMobileProto.ViewModel
-{
-    public enum MenuItemType
-    {
-        Live,
-        Projects,
-        Help,
-        Settings
-    }
-
+{    
     public class MenuPageViewModel
     {
         public ObservableCollection<MenuItem> MenuItems { get; set; }
@@ -23,31 +17,25 @@ namespace LeanMobileProto.ViewModel
             {
                 new MenuItem
                 {
-                    ItemType = MenuItemType.Live,
+                    MenuItemType = MenuItemType.Live,
                     Title = "Live"
                 },
                 new MenuItem
                 {
-                    ItemType = MenuItemType.Projects,
+                    MenuItemType = MenuItemType.Projects,
                     Title = "Projects"
                 },
                 new MenuItem
                 {
-                    ItemType = MenuItemType.Help,
+                    MenuItemType = MenuItemType.Help,
                     Title = "Help"
                 },
                 new MenuItem
                 {
-                    ItemType = MenuItemType.Settings,
+                    MenuItemType = MenuItemType.Settings,
                     Title = "Settings"
                 }
             });
         }
-    }
-
-    public class MenuItem
-    {
-        public string Title { get; set; }
-        public MenuItemType ItemType { get; set; }
     }
 }

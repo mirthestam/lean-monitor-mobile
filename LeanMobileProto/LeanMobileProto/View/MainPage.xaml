@@ -4,14 +4,14 @@
              xmlns:local="clr-namespace:LeanMobileProto"
              xmlns:view="clr-namespace:LeanMobileProto.View;assembly=LeanMobileProto"
              Title="LEAN"
-             x:Class="LeanMobileProto.MainPage">
+             x:Class="LeanMobileProto.View.MainPage">
 
     <MasterDetailPage.Master>
-        <local:MenuPage/>
+        <view:MenuPage/>
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
-        <NavigationPage >
+        <NavigationPage>
             <x:Arguments>
                 <view:LiveAlgorithmsPage/>
             </x:Arguments>

@@ -1,4 +1,5 @@
 ﻿using System;
+using LeanMobileProto.View;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

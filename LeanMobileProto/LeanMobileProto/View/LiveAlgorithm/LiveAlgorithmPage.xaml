@@ -11,7 +11,7 @@
              xmlns:system="clr-namespace:System;assembly=netstandard"
              Title="Sell in May"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
-             x:Class="LeanMobileProto.View.LiveAlgorithmPage">
+             x:Class="LeanMobileProto.View.LiveAlgorithm.LiveAlgorithmPage">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Liquidate" Icon="baseline_warning_white_24.png" Order="Secondary"/>

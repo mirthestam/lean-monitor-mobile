@@ -14,7 +14,23 @@ namespace LeanMobileProto.Extensions
 
         public T Dark { get; set; } = default(T);
 
-        public T Current => Dark;
+        public T Current
+        {
+            get
+            {
+                switch (AppSettings.Current.Theme)
+                {
+                    case AppTheme.Dark:
+                        return Dark;
+                        
+                    case AppTheme.Light:
+                        return Light;
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
 
         public static implicit operator T(OnTheme<T> onTheme)
         {
