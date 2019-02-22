@@ -34,11 +34,23 @@ export_to_color() {
         export_from_svg $1-$2 ./android/drawable-xhdpi/$1_48_$2.png 96
         export_from_svg $1-$2 ./android/drawable-xxhdpi/$1_48_$2.png 144  
     fi  
+    
+    if [ "$4" == "100" ]; then
+        export_from_svg $1-$2 ./android/drawable-mdpi/$1_100_$2.png 100
+        export_from_svg $1-$2 ./android/drawable-hdpi/$1_100_$2.png 150
+        export_from_svg $1-$2 ./android/drawable-xhdpi/$1_100_$2.png 200
+        export_from_svg $1-$2 ./android/drawable-xxhdpi/$1_100_$2.png 300  
+    fi  
+    
 }
 
 export_from_svg() {
     inkscape --file $1.svg --export-png $2 --export-width $3
 }
+
+# Logo
+logo='FF9900'
+export_to_color Lean light $logo 100
 
 # Main Menu
 light_menu='337AB7'
