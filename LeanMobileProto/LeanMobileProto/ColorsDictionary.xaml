@@ -7,8 +7,8 @@
 
     <extensions:OnTheme x:Key="ColorPrimary"
                         x:TypeArguments="Color"
-                        Light="#000000"
-                        Dark="#000000"/>
+                        Light="#222222"
+                        Dark="#111111"/>
 
     <extensions:OnTheme x:Key="ColorAccent"
                         x:TypeArguments="Color"

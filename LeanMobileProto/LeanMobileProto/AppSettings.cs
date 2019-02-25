@@ -11,6 +11,6 @@ namespace LeanMobileProto
 
         public static AppSettings Current => _current ?? (_current = new AppSettings());
 
-        public AppTheme Theme { get; set; } = AppTheme.Dark;
+        public AppTheme Theme { get; set; } = AppTheme.Light;
     }
 }

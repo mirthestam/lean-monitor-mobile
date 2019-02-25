@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
              x:Class="LeanMobileProto.View.LoginPage">
+
+    <ContentPage.Resources>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="0,200,0,0">
-            <Entry Placeholder="User ID"></Entry>
-            <Entry Placeholder="Access token"></Entry>
+            <Entry Placeholder="User ID"/>
+            <Entry Placeholder="Access token"/>
             <Picker Title="Server"/>
             <Button  Text="Login"/>
         </StackLayout>
