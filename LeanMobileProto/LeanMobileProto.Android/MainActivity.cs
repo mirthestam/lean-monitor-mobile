@@ -24,7 +24,8 @@ namespace LeanMobileProto.Droid
 
             SetTheme();
 
-            LoadApplication(new App());
+            var platformInitializer = new Initializer();
+            LoadApplication(new App(platformInitializer));
         }
 
         private void SetTheme()

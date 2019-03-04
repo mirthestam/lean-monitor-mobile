@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeanMobileProto.Android", "LeanMobileProto\LeanMobileProto.Android\LeanMobileProto.Android.csproj", "{A6D49B22-C311-475A-AD6E-3D033C0CE90C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeanMobileProto", "LeanMobileProto\LeanMobileProto\LeanMobileProto.csproj", "{CFA4612C-0D84-48C3-A048-BFEAB904689A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeanMobileProto", "LeanMobileProto\LeanMobileProto\LeanMobileProto.csproj", "{CFA4612C-0D84-48C3-A048-BFEAB904689A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{4E7E34E5-4F9D-4CBA-8783-F28337A712BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A6D49B22-C311-475A-AD6E-3D033C0CE90C} = {4E7E34E5-4F9D-4CBA-8783-F28337A712BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9833020A-2AFA-4AFF-9D19-DEB76BB3F189}

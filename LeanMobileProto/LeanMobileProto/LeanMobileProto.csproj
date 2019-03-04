@@ -10,6 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fody" Version="4.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="fusillade" Version="2.0.2" />
+    <PackageReference Include="Prism.Unity.Forms" Version="7.1.0.431" />
+    <PackageReference Include="PropertyChanged.Fody" Version="2.6.0" />
+    <PackageReference Include="Refit" Version="4.6.90" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="Xam.Plugin.TabView" Version="1.0.4" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
@@ -75,6 +83,9 @@
   <ItemGroup>
     <None Update="App.xaml">
       <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="FodyWeavers.xml">
+      <SubType>Designer</SubType>
     </None>
     <None Update="LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>

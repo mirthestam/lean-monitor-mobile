@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:LeanMobileProto.Converters;assembly=LeanMobileProto"
              xmlns:extensions="clr-namespace:LeanMobileProto.Extensions;assembly=LeanMobileProto"
              xmlns:leanMobileProto="clr-namespace:LeanMobileProto;assembly=LeanMobileProto"
+             xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
              x:Class="LeanMobileProto.App">
     <Application.Resources>
         <ResourceDictionary Source="ColorsDictionary.xaml"/>
@@ -11,4 +12,4 @@
         <ResourceDictionary Source="StylesDictionary.xaml"/>
         <ResourceDictionary Source="ImageDictionary.xaml"/>
     </Application.Resources>
-</Application>
+</prism:PrismApplication>
