@@ -1,64 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Text;
-using Fusillade;
+using LeanMobileProto.Model.Api;
 using LeanMobileProto.Services.Settings;
-using Refit;
 
 namespace LeanMobileProto.Services.Api
 {
     public class ApiService : IApiService
     {
         private readonly ISettingsService _settingsService;
+        private readonly IApiFactory _apiFactory;
+        
+        private Lazy<IApi> _api;
 
-        private readonly Lazy<IApi> _backgroundApi;
-        private readonly Lazy<IApi> _userInitiatedApi;
-        private readonly Lazy<IApi> _speculativeApi;
+        public IApi Api => _api.Value;
 
-        public ApiService(ISettingsService settingsService)
+        public ApiService(ISettingsService settingsService, IApiFactory apiFactory)
         {
             _settingsService = settingsService;
+            _apiFactory = apiFactory;
+            _api = new Lazy<IApi>(CreateApi);
+        }        
 
-            var handler = new HttpClientHandler();
-
-            _backgroundApi = new Lazy<IApi>(() => Create(Priority.Background));
-            _userInitiatedApi = new Lazy<IApi>(() => Create(Priority.UserInitiated));
-            _speculativeApi = new Lazy<IApi>(() => Create(Priority.Speculative));
-        }
-
-        private IApi Create(Priority priority)
+        private IApi CreateApi()
         {
-            var clientHandler = new HttpClientHandler();
-            var messageHandler = new RateLimitedHttpMessageHandler(new HttpClientHandler(), priority);
-            var client = new HttpClient(messageHandler)
-            {
-                BaseAddress = new Uri(_settingsService.EndpointAddress)
-            };
-
-            return RestService.For<IApi>(client);
-        }
-
-        public IApi Background => _backgroundApi.Value;
-        public IApi UserInitiated => _userInitiatedApi.Value;
-        public IApi Speculative => _speculativeApi.Value;
-
-        public IApi ForPriority(Priority priority)
-        {
-            switch (priority)
-            {
-                case Priority.Speculative:
-                    return Speculative;
-                    
-                case Priority.UserInitiated:
-                    return UserInitiated;
-                    
-                case Priority.Background:
-                    return Background;
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(priority), priority, null);
-            }   
+            return _apiFactory.Create(_settingsService.AuthUserToken, _settingsService.AuthAccessToken, _settingsService.EndpointAddress);
         }
     }
 }

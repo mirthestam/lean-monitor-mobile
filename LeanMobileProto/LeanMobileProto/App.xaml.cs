@@ -1,5 +1,7 @@
 ﻿using System;
+using LeanMobileProto.Model.Api;
 using LeanMobileProto.Services.Api;
+using LeanMobileProto.Services.Authentication;
 using LeanMobileProto.Services.Settings;
 using LeanMobileProto.View;
 using LeanMobileProto.ViewModel;
@@ -20,8 +22,10 @@ namespace LeanMobileProto
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Services
+            containerRegistry.Register<IApiFactory, ApiFactory>();
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterSingleton<ISettingsService, SettingsService>();
+            containerRegistry.Register<IAuthenticationService, AuthenticationService>();
 
             // Views
             containerRegistry.RegisterForNavigation<NavigationPage>();        
@@ -32,11 +36,7 @@ namespace LeanMobileProto
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
-            // TODO:
-            // Redirect to LoginPage
-            //await NavigationService.NavigateAsync("NavigationPage/LoginPage");
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
     }
 }

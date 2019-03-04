@@ -11,6 +11,8 @@ namespace LeanMobileProto.Services.Settings
         private const string AuthUserTokenKey = "AuthUserToken";
         private const string AuthAccessTokenKey = "AuthAccessToken";
         private const string EndpointAddressKey = "EndpointAddress";
+
+        private const string EndpointAddressDefault = "https://www.quantconnect.com/api/v2";
        
         public string AuthUserToken
         {
@@ -26,7 +28,7 @@ namespace LeanMobileProto.Services.Settings
 
         public string EndpointAddress
         {
-            get => GetValueOrDefault<string>(EndpointAddressKey);
+            get => GetValueOrDefault(EndpointAddressKey, EndpointAddressDefault);
             set => SetValue(EndpointAddressKey, value);
         }
 
@@ -40,8 +42,8 @@ namespace LeanMobileProto.Services.Settings
             return (T)value;
         }
 
-        private async void SetValue(string key, object value)
-        {
+        private static async void SetValue(string key, object value)
+        {            
             Application.Current.Properties[key] = value;
             await Application.Current.SavePropertiesAsync();
         }
