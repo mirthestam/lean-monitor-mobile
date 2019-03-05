@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LeanMobile.Utils;
 
-namespace QuantConnect.Api.Factory
+namespace LeanMobile.Api.Factory
 {
     public class AuthenticatedHttpClientHandler : HttpClientHandler
     {

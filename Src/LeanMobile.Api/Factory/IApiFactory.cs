@@ -1,4 +1,4 @@
-﻿namespace QuantConnect.Api.Factory
+﻿namespace LeanMobile.Api.Factory
 {
     public interface IApiFactory
     {

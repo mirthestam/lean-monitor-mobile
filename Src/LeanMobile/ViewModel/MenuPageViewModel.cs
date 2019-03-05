@@ -11,6 +11,8 @@ namespace LeanMobile.ViewModel
     {
         public ObservableCollection<MenuItem> MenuItems { get; set; }
 
+        public MenuItem SelectedMenuItem { get; set; }
+
         public MenuPageViewModel()
         {
             MenuItems = new ObservableCollection<MenuItem>(new List<MenuItem>

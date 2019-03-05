@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using LeanMobile.Services.Authentication;
 using LeanMobile.Services.Settings;
+using LeanMobile.View;
 using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
@@ -45,7 +46,7 @@ namespace LeanMobile.ViewModel
                 _settingsService.AuthAccessToken = AccessToken;
                 _settingsService.AuthUserToken = UserToken;
 
-                await _navigationService.NavigateAsync("/MainPage");
+                await _navigationService.NavigateAsync("/" + nameof(MainPage) + "/" + nameof(NavigationPage) + "/" + nameof(LiveAlgorithmsPage));
             }
             else
             {

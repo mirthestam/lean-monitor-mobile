@@ -1,4 +1,5 @@
 ﻿using System;
+using LeanMobile.Api.Factory;
 using LeanMobile.Services.Api;
 using LeanMobile.Services.Authentication;
 using LeanMobile.Services.Settings;
@@ -6,8 +7,6 @@ using LeanMobile.View;
 using LeanMobile.ViewModel;
 using Prism;
 using Prism.Ioc;
-using QuantConnect.Api;
-using QuantConnect.Api.Factory;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -37,7 +36,9 @@ namespace LeanMobile
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            
+            //await NavigationService.NavigateAsync(nameof(NavigationPage) + "/" + nameof(LoginPage));
+            await NavigationService.NavigateAsync(nameof(View.MainPage) + "/" + nameof(NavigationPage) + "/" + nameof(LiveAlgorithmsPage));
         }
     }
 }

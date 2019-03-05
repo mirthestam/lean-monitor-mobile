@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using LeanMobile.Api;
+using LeanMobile.Api.Factory;
 using LeanMobile.Services.Settings;
 using QuantConnect.Api;
-using QuantConnect.Api.Factory;
 
 namespace LeanMobile.Services.Api
 {

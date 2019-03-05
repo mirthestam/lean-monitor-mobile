@@ -70,7 +70,9 @@
                       CachingStrategy="RecycleElement"
                       SeparatorVisibility="None"
                       HasUnevenRows="True"
-                      ItemsSource="{Binding MenuItems}">
+                      ItemsSource="{Binding MenuItems}"
+                      SelectedItem="{Binding SelectedMenuItem}"
+                      >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

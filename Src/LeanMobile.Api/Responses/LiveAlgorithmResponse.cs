@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace QuantConnect.Api.Responses
+namespace LeanMobile.Api.Responses
 {
     public class LiveAlgorithmResponse : Response
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace QuantConnect.Api.Responses
+namespace LeanMobile.Api
 {
     public class LiveResult : Result
     {

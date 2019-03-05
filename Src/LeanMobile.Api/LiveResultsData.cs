@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace QuantConnect.Api.Responses
+namespace LeanMobile.Api
 {
     public class LiveResultsData
     {

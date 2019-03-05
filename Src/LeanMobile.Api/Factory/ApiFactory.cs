@@ -3,7 +3,7 @@ using System.Net.Http;
 using Fusillade;
 using Refit;
 
-namespace QuantConnect.Api.Factory
+namespace LeanMobile.Api.Factory
 {
     public class ApiFactory : IApiFactory
     {

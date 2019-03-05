@@ -1,4 +1,4 @@
-﻿namespace QuantConnect.Api
+﻿namespace LeanMobile.Api
 {
     public enum AlgorithmStatus
     {

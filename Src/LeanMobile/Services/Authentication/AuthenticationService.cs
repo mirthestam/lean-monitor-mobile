@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using LeanMobile.Api.Factory;
 using LeanMobile.Services.Api;
 using LeanMobile.Services.Settings;
 using QuantConnect.Api;
-using QuantConnect.Api.Factory;
 
 namespace LeanMobile.Services.Authentication
 {

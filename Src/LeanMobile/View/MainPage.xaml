@@ -9,13 +9,5 @@
     <MasterDetailPage.Master>
         <view:MenuPage/>
     </MasterDetailPage.Master>
-
-    <MasterDetailPage.Detail>
-        <NavigationPage>
-            <x:Arguments>
-                <view:LiveAlgorithmsPage/>
-            </x:Arguments>
-        </NavigationPage>
-    </MasterDetailPage.Detail>
-   
+       
 </MasterDetailPage>

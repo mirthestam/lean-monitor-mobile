@@ -1,4 +1,4 @@
-﻿namespace QuantConnect.Api.Responses
+﻿namespace LeanMobile.Api.Responses
 {
     public class LiveAlgorithmResultsResponse : Response
     {

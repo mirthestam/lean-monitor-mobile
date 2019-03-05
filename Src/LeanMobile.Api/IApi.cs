@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using QuantConnect.Api.Responses;
+using LeanMobile.Api.Responses;
 using Refit;
 
-namespace QuantConnect.Api
+namespace LeanMobile.Api
 {
     public interface IApi
     {
