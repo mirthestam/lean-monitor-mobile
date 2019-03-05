@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:LeanMobile.Controls"
+             Title="Live"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             x:Class="LeanMobile.View.LiveAlgorithmsPage">
+    <ContentPage.Content>
+        <StackLayout Margin="0">
+            <ListView x:Name="AlgorithmsListView"
+                      ItemsSource="{Binding Algorithms}"
+                      ItemSelected="ListView_OnItemSelected"
+                      RowHeight="150"
+                      SeparatorVisibility="None"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <!--<BoxView Grid.Row="1" Margin="5" Color="{DynamicResource SeparatorColor}" 
+                                         BackgroundColor="{DynamicResource PageBackgroundColor}" />
+
+                                <BoxView Grid.Row="1" Margin="6" Color="{DynamicResource PageBackgroundColor}" 
+                                         BackgroundColor="{DynamicResource PageBackgroundColor}"/>-->
+
+                                <BoxView Grid.Row="0" Grid.RowSpan="2" Margin="5" Color="{DynamicResource SeparatorColor}" 
+                                         BackgroundColor="{DynamicResource PageBackgroundColor}" />
+
+                                <BoxView Grid.Row="0" Grid.RowSpan="2" Margin="6" Color="{DynamicResource ChartBackgroundColor}" 
+                                         BackgroundColor="{DynamicResource ChartBackgroundColor}"/>
+
+                                <Label Grid.Row="0"
+                                       FontSize="Medium"
+                                       Margin="10,5,5,0"
+                                       FontAttributes="Bold"
+                                       Text="{Binding Title}"/>
+
+                                <controls:SimpleLineChart Grid.Row="1" Margin="6"/>
+
+                                <Grid Grid.Row="2"  Margin="5,0,5,5" RowSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Label Grid.Row="0"
+                                           Grid.Column="0"
+                                           HorizontalOptions="Center"
+                                           TextColor="{Binding Unrealized, Converter={StaticResource DefaultCurrencyColorConverter}}"
+                                           Text="{Binding Unrealized, Converter={StaticResource DefaultCurrencyConverter}}"/>
+
+                                    <Label Grid.Row="0"
+                                           Grid.Column="1"
+                                           HorizontalOptions="Center"
+                                           TextColor="{Binding Equity, Converter={StaticResource DefaultCurrencyColorConverter}}"
+                                           Text="{Binding Equity, Converter={StaticResource DefaultCurrencyConverter}}"/>
+
+                                    <Label Grid.Row="0"
+                                           Grid.Column="2"
+                                           HorizontalOptions="Center"
+                                           TextColor="{Binding Holdings, Converter={StaticResource NegativeCurrencyColorConverter}}"
+                                           Text="{Binding Holdings, Converter={StaticResource DefaultCurrencyConverter}}"/>
+
+                                    <Label Grid.Row="1"
+                                           Grid.Column="0"
+                                           HorizontalOptions="Center"
+                                           TextColor="{StaticResource TextAccentColor}"
+                                           Text="Unrealized"/>
+
+                                    <Label Grid.Row="1"
+                                           Grid.Column="1"
+                                           HorizontalOptions="Center"
+                                           TextColor="{StaticResource TextAccentColor}"
+                                           Text="Equity"/>
+
+                                    <Label Grid.Row="1"
+                                           Grid.Column="2"
+                                           HorizontalOptions="Center"
+                                           TextColor="{StaticResource TextAccentColor}"
+                                           Text="Holdings"/>
+                                </Grid>
+                            </Grid>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    
