@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:LeanMobile.Client.Extensions"
+             xmlns:system="clr-namespace:System;assembly=netstandard">
+
+    <extensions:OnTheme x:Key="ColorPrimary"
+                        x:TypeArguments="Color"
+                        Light="#222222"
+                        Dark="#111111"/>
+
+    <extensions:OnTheme x:Key="ColorAccent"
+                        x:TypeArguments="Color"
+                        Light="#337AB7"
+                        Dark="#007ACC"/>
+        
+    <extensions:OnTheme x:Key="PageBackgroundColor"
+                        x:TypeArguments="Color"
+                        Light="#FFFFFF"
+                        Dark="#222222"/>
+
+    <extensions:OnTheme x:Key="HeaderBackgroundColor"
+                        x:TypeArguments="Color"
+                        Light="#F5F5F5"
+                        Dark="#464545"/>
+
+    <extensions:OnTheme x:Key="HeaderTextColor"
+                        x:TypeArguments="Color"
+                        Light="#383838"
+                        Dark="#E6E6E6"/>
+
+    <extensions:OnTheme x:Key="SeparatorColor"
+                        x:TypeArguments="Color"
+                        Light="#DDDDDD"
+                        Dark="#404046"/>
+
+    <extensions:OnTheme x:Key="TextAccentColor"
+                        x:TypeArguments="Color"
+                        Light="#CFCFCF"
+                        Dark="#C2C2C2"/>
+    
+    <extensions:OnTheme x:Key="TextColor"
+                        x:TypeArguments="Color"
+                        Light="#808080"
+                        Dark="#808080"/>
+    
+    <extensions:OnTheme x:Key="LabelNumberGreenColor"
+                        x:TypeArguments="Color"
+                        Light="#8CC176"
+                        Dark="#8CC176"/>
+    
+    <extensions:OnTheme x:Key="TabColor"
+                        x:TypeArguments="Color"
+                        Light="#337AB7"
+                        Dark="#C2C2C2"
+                        />
+
+    <extensions:OnTheme x:Key="LabelNumberRedColor"
+                        x:TypeArguments="Color"
+                        Light="#B82C0C"
+                        Dark="#B82C0C"/> 
+
+    <!-- TODO: Add ChartBackgroundColor to PGA-->
+    <extensions:OnTheme x:Key="ChartBackgroundColor"
+                        x:TypeArguments="Color"
+                        Light="#eeeeee"
+                        Dark="#222222"/>
+
+</ResourceDictionary>

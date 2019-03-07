@@ -1,0 +1,34 @@
+/* Brainstorm over hoe dit moet werekn
+     Algorithms hebben veel data. komt vanaf verschillende functies uit de api. Charts, stats, overizcht, namen, etc.
+     overzichtsscherm heeft lisjt en namen nodig. Alles moet snel tonen.
+     Ik denk aan messaging. Een viewModel die weet WIE hij heeft (op ID),. subscribed op berichten en zo zichzelf bijwerkt
+     dus, initieel krijg je een lijst. De namen volgen later. De bedragen volgen later (worden opgevraagd), dit alles async.
+     De lijst zelf kan ook muteren, 
+     Vraag 1: Wil je dat het overzichtsscherm statistieken bijwerkt? JA! Dus ook die viewmodels, in de list willen al updates krijgen van bedragen etc.
+     echter, er moet wel worden aangegeven voor welke algorithmes updates nodig zijn. Zo wil je updates op het overizchtsscherm, maar niet alles, en in het detailscherm meer
+     en bijv .de log alleen realtime als het tab is geopend.
+     Wat de log betreft, kan ik data cachen en bijwerken met de API vanaf het laatst gelogde regel.
+     Wat de charts betreft moet ik dit nog eens goed uitzoeken.
+     Ik wil niet dat alle data voortdurent loopt als ik ook maar ergens in de app zit. Alleen zichtbare data.
+     Ik zal moeten pollen voor data die voortdurent verandert (bedragen, etc). Ik zal niet hoeven pollen op de namen
+     zo kan de lijst met algorithmes bij het laden van de pagina worden ververst.
+     Doordat data steeds ververst, stuur ik MSGes omdat ik niet weet wie lusitert. ViewModels zelf subscriben op deze msgs en doen hun kunstje.
+     Repositories subscriben om de cache bij te werken?.
+     Systeem moet zo zijn, dat als QC besluit een push ipv poll mechanisme in te bouwen, ik dit ook ondersteun.
+     Ik hoef geen android services, want ik wil niet dat mijn app op de achtergrond blijft ophalen. Alleen ,indien men bewust naar de data kijkt.
+     TENZIJ ik dan oude data ga missen omdat QC dat niet meer deelt, voor de grafieken. Maar, dat hoop ik niet
+     Polling dus alleen op data waarvan ik verwacht dat het veel verandert. Dat is bijv NIET een project name.
+     Die kan dus eenmalig prima worden opgehaald, omdat er een refresh plaats vindt bij een nieuwe pagina.
+     Vraag is echter wel, ga ik de namen cachen, anders krijg ik elke keer die requests naar de backend. Niet vooraf te veel overna denken.
+     Requests kan ik ook gaan cachen zodra ik effectief MERK dat er teveel gebeurt.
+     Tot slot wil ik niet de QC models laten leaken in de mobile app. Daar moet dus mapping plaatsvinden. Klinkt dus toch als een repository layer, omdat in de context
+     van een service entiteiten zijnhoe zij zijn (live algorithm kent al een naam) maar dat komt uit 2 api's (met bijbehorende caches).
+     Messaging is bedoeld voor tussen ViewModels. 
+     Mijn viewmodels moeten voor updates dus, OF subscriben op de services, of een domain event concept hebben
+     NU kan de parent page subscriben op de services, en intern messages sturen naar zijn children. Dan zijn de layers wel keurig gescheiden.
+     Voor de services. Maak ik dit observables, (reactive) of ga ik voor events?
+     Als ik coor reactive ga, kan ik linq gebruiken vanuit de viewmodels om te reageren op wat zij boeind vinden
+     bijv. AlgorithmUpdated.Where(a => a.Id == id).subscribe. Dat is zo SUPER handig :).     
+     Domain events? voor bijv. login credentials changed? of project name changed (zodat de algorithm update?)
+     https://stackoverflow.com/questions/28947436/mvvm-light-messenger-between-model-viewmodel-communication  antwoord met domain driven app XD
+     */

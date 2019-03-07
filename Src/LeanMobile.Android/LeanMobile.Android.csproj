@@ -55,7 +55,6 @@
     <PackageReference Include="Xam.Plugin.TabView">
       <Version>1.0.4</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="3.5.0.169047" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.1" />
@@ -299,9 +298,13 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\Lean_100_light.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LeanMobile.Api\LeanMobile.Api.csproj">
-      <Project>{eef272e1-9373-4679-a40d-8957da2f0c42}</Project>
-      <Name>LeanMobile.Api</Name>
+    <ProjectReference Include="..\LeanMobile.Client\LeanMobile.Client.csproj">
+      <Project>{caa60dee-533c-4781-a7cc-2a145475ccc1}</Project>
+      <Name>LeanMobile.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LeanMobile.Data\LeanMobile.Data.csproj">
+      <Project>{dba9897d-5c50-4e6b-8778-6113a8da9c57}</Project>
+      <Name>LeanMobile.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\LeanMobile.Utils\LeanMobile.Utils.csproj">
       <Project>{d90c8792-48b0-4605-ba24-1e1985a4fe95}</Project>

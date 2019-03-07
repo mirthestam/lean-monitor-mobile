@@ -6,8 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-using LeanMobile;
-using LeanMobile.Enums;
+using LeanMobile.Client;
+using LeanMobile.Settings;
 
 namespace LeanMobile.Droid
 {
