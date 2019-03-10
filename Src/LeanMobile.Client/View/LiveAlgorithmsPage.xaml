@@ -40,7 +40,7 @@
                                        FontSize="Medium"
                                        Margin="10,5,5,0"
                                        FontAttributes="Bold"
-                                       Text="{Binding Title}"/>
+                                       Text="{Binding Name}"/>
 
                                 <controls:SimpleLineChart Grid.Row="1" Margin="6"/>
 

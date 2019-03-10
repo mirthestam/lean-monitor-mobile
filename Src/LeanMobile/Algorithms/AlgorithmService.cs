@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 
 namespace LeanMobile.Algorithms
 {
@@ -16,6 +18,11 @@ namespace LeanMobile.Algorithms
             _statisticProvider = statisticProvider;
 
             CreateResultObservable();
+        }
+
+        public Task<IEnumerable<Algorithm>> GetAlgorithmsAsync()
+        {
+            return _algorithmRepository.GetAlgorithmsAsync();
         }
 
         private void CreateResultObservable()

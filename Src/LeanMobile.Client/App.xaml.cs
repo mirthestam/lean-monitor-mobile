@@ -5,6 +5,7 @@ using LeanMobile.Client.View;
 using LeanMobile.Client.ViewModel;
 using LeanMobile.Client.Services;
 using LeanMobile.Data;
+using LeanMobile.Data.Algorithm;
 using LeanMobile.Data.Authentication;
 using LeanMobile.Data.Remote.Factory;
 using LeanMobile.Settings;
@@ -30,6 +31,7 @@ namespace LeanMobile.Client
             containerRegistry.RegisterSingleton<IAlgorithmService, AlgorithmService>();
 
             // Data
+            containerRegistry.Register<IAlgorithmRepository, AlgorithmRepository>();
             containerRegistry.RegisterSingleton<IAlgorithmResultProvider, AlgorithmResultProvider>();
             containerRegistry.Register<IApiFactory, ApiFactory>();
             containerRegistry.Register<IApiService, ApiService>();

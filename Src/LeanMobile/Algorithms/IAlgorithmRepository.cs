@@ -1,7 +1,10 @@
-﻿namespace LeanMobile.Algorithms
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+
+namespace LeanMobile.Algorithms
 {
     public interface IAlgorithmRepository
     {
-
+        Task<IEnumerable<Algorithm>> GetAlgorithmsAsync();
     }
 }

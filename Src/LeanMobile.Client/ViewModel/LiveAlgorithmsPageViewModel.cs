@@ -26,13 +26,17 @@ namespace LeanMobile.Client.ViewModel
 
         public void OnNavigatedFrom(INavigationParameters parameters)
         {
-            // TODO: Unsubscribe from live events for all shown algorithms
         }
 
         public async void OnNavigatedTo(INavigationParameters parameters)
         {
-            // TODO: Refresh the list of algorithms (background if back, foreground if user initiated (to)
-            // TODO: Subscribe to live updates            
+            Algorithms.Clear();
+            var algorithms = await _algorithmService.GetAlgorithmsAsync();
+            foreach (var algorithm in algorithms)
+            {
+                var algorithmViewModel = new AlgorithmViewModel(algorithm);
+                Algorithms.Add(algorithmViewModel);
+            }
         }
 
         public void OnNavigatingTo(INavigationParameters parameters)
@@ -41,13 +45,10 @@ namespace LeanMobile.Client.ViewModel
 
         public void OnResume()
         {
-            // TODO: Refresh the list of algorithms
-            // TODO: Subscribe to live updates
         }
 
         public void OnSleep()
-        {
-            // TODO: unsubscribe to live updates
+        {            
         }
     }
 }
