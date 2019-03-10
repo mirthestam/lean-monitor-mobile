@@ -1,4 +1,4 @@
-﻿namespace LeanMobile.Algorithm
+﻿namespace LeanMobile.Algorithms
 {
     public interface IAlgorithmRepository
     {

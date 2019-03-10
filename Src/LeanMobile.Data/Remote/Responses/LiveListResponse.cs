@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace LeanMobile.Data.Remote.Responses
 {
-    public class LiveListResponse : Response
+    public class LiveListResponse : RootResponse
     {
         [JsonProperty(PropertyName = "live")]
         public List<LiveAlgorithmResponse> Algorithms;

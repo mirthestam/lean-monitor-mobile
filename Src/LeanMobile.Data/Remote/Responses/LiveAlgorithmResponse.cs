@@ -5,6 +5,14 @@ namespace LeanMobile.Data.Remote.Responses
 {
     public class LiveAlgorithmResponse : Response
     {
+        /* The following field(s) are present in the response, however not 'documented' in the official API client'
+         - None
+         */
+
+        /* The following field(s) are documented but ignored or simplified in this implementation
+         - None
+         */
+
         [JsonProperty(PropertyName = "projectId")]
         public int ProjectId;
 

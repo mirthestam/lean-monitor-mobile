@@ -9,8 +9,7 @@ namespace LeanMobile.Client.View.LiveAlgorithm
 	{
 		public LiveAlgorithmPage ()
 		{
-			InitializeComponent ();
-            BindingContext = new LiveAlgorithmPageViewModel();
+			InitializeComponent();
 		}
 	}
 }

@@ -6,6 +6,7 @@ namespace LeanMobile.Data.Authentication
 {
     public class AuthenticationService : IAuthenticationService
     {
+        // TODO: Implement this as a provider, and let the service live in LeanMobile
         private readonly ISettingsService _settingsService;
         private readonly IApiFactory _apiFactory;
 

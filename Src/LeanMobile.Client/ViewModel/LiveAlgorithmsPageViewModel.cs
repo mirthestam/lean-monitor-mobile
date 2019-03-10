@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using LeanMobile.Algorithm;
+using LeanMobile.Algorithms;
 using LeanMobile.Utils;
 using Prism.AppModel;
 using Prism.Mvvm;

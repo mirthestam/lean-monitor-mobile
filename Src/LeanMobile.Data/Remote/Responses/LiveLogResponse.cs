@@ -6,7 +6,7 @@ namespace LeanMobile.Data.Remote.Responses
     /// <summary>
     /// Logs from a live algorithm
     /// </summary>
-    public class LiveLogResponse : Response
+    public class LiveLogResponse : RootResponse
     {
         /// <summary>
         /// List of logs from the live algorithm

@@ -1,4 +1,4 @@
-﻿using LeanMobile.Algorithm;
+﻿using LeanMobile.Algorithms;
 
 namespace LeanMobile.Data.Algorithm
 {

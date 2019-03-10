@@ -1,5 +1,5 @@
 ﻿using System;
-using LeanMobile.Algorithm;
+using LeanMobile.Algorithms;
 using LeanMobile.Authentication;
 using LeanMobile.Client.View;
 using LeanMobile.Client.ViewModel;
@@ -25,15 +25,18 @@ namespace LeanMobile.Client
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             // Services
-            containerRegistry.Register<IApiFactory, ApiFactory>();
-            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterSingleton<ISettingsService, SettingsService>();
             containerRegistry.Register<IAuthenticationService, AuthenticationService>();
-            containerRegistry.Register<IAlgorithmService, AlgorithmService>();                        
+            containerRegistry.RegisterSingleton<IAlgorithmService, AlgorithmService>();
+
+            // Data
+            containerRegistry.RegisterSingleton<IAlgorithmResultProvider, AlgorithmResultProvider>();
+            containerRegistry.Register<IApiFactory, ApiFactory>();
+            containerRegistry.Register<IApiService, ApiService>();
 
             // Views
-            containerRegistry.RegisterForNavigation<NavigationPage>();        
-            containerRegistry.RegisterForNavigation<MainNavigationPage>(); 
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<MainNavigationPage>();
             containerRegistry.RegisterForNavigation<MenuPage, MenuPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
@@ -53,7 +56,7 @@ namespace LeanMobile.Client
         protected override async void OnInitialized()
         {
             InitializeComponent();
-            
+
             await NavigationService.NavigateAsync(nameof(NavigationPage) + "/" + nameof(LoginPage));
         }
     }
