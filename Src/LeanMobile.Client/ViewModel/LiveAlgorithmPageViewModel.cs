@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Reactive.Linq;
+using System.Threading.Tasks;
 using LeanMobile.Algorithms;
+using LeanMobile.Client.View.LiveAlgorithm;
+using Prism.Navigation;
 
 namespace LeanMobile.Client.ViewModel
 {
     public class LiveAlgorithmPageViewModel : PageViewModelBase
-    {
+    {        
         private readonly IAlgorithmService _algorithmService;
 
         private IDisposable _algorithmResultSubscription;
@@ -14,9 +17,32 @@ namespace LeanMobile.Client.ViewModel
         public decimal Unrealized { get; set; } = -344.23m;
         public decimal Holdings { get; set; } = 34.34m;
 
+        public string Name { get; set; }
+
         public LiveAlgorithmPageViewModel(IAlgorithmService algorithmService)
         {
             _algorithmService = algorithmService;
+        }
+
+        public override async void OnNavigatedTo(INavigationParameters parameters)
+        {
+            switch (parameters.GetNavigationMode())
+            {
+                case NavigationMode.Back:
+                    break;
+                case NavigationMode.New:
+                    var algorithmId = parameters.GetValue<string>(LiveAlgorithmPage.Parameters.Id);
+                    await InitializeAlgorithm(algorithmId);
+                    break;
+                default:
+                    throw new ArgumentException($"Unsupported NavigationMode: {parameters.GetNavigationMode()}", nameof(parameters));
+            }
+        }
+
+        private async Task InitializeAlgorithm(string algorithmId)
+        {
+            var algorithm = await _algorithmService.GetAlgorithmAsync(algorithmId);
+            Name = algorithm.Name;
         }
 
         private void SubscribeToUpdates()

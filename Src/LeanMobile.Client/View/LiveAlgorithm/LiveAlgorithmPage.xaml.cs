@@ -7,6 +7,11 @@ namespace LeanMobile.Client.View.LiveAlgorithm
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LiveAlgorithmPage : ContentPage
 	{
+        public class Parameters
+        {
+            public const string Id = "id";
+        }
+
 		public LiveAlgorithmPage ()
 		{
 			InitializeComponent();

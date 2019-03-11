@@ -8,7 +8,7 @@
              xmlns:liveAlgorithm="clr-namespace:LeanMobile.Client.View.LiveAlgorithm"
              xmlns:holdings="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Holdings"
              xmlns:system="clr-namespace:System;assembly=netstandard"
-             Title="Sell in May"
+             Title="{Binding Name}"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              x:Class="LeanMobile.Client.View.LiveAlgorithm.LiveAlgorithmPage">
 

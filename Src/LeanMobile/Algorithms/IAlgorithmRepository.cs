@@ -6,5 +6,6 @@ namespace LeanMobile.Algorithms
     public interface IAlgorithmRepository
     {
         Task<IEnumerable<Algorithm>> GetAlgorithmsAsync();
+        Task<Algorithm> GetAlgorithmAsync(string algorithmId);
     }
 }

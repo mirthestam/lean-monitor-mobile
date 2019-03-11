@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using LeanMobile.Algorithms;
 using LeanMobile.Data.Utils;
@@ -63,6 +64,13 @@ namespace LeanMobile.Data.Algorithm
             }
 
             return algorithms;
+        }
+
+        public async Task<Algorithms.Algorithm> GetAlgorithmAsync(string algorithmId)
+        {
+            var algorithms = await GetAlgorithmsAsync();
+            var algorithm = algorithms.First(a => a.Id == algorithmId);
+            return algorithm;
         }
     }
 }

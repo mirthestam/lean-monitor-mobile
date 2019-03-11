@@ -1,3 +1,6 @@
+Volgende taken:
+Cache op Algorithms en projects, Reactive. (Er is nu al een reload van de API merkbaar)
+
 /* Brainstorm over hoe dit moet werekn
      Algorithms hebben veel data. komt vanaf verschillende functies uit de api. Charts, stats, overizcht, namen, etc.
      overzichtsscherm heeft lisjt en namen nodig. Alles moet snel tonen.

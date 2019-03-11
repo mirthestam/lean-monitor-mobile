@@ -13,18 +13,11 @@ namespace LeanMobile.Client.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LiveAlgorithmsPage : ContentPage
 	{
+        private LiveAlgorithmsPageViewModel ViewModel => (LiveAlgorithmsPageViewModel) BindingContext;
+
 		public LiveAlgorithmsPage ()
 		{
 			InitializeComponent ();
-        }
-
-        private void ListView_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (AlgorithmsListView.SelectedItem == null) return;
-
-            AlgorithmsListView.SelectedItem = null;
-            var itemPage = new LiveAlgorithmPage();
-            this.Navigation.PushAsync(itemPage);
         }
     }
 }

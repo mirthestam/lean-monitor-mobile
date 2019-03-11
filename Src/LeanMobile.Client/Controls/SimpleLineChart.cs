@@ -30,27 +30,13 @@ namespace LeanMobile.Client.Controls
                 StrokeWidth = LineSize,
                 IsAntialias = true
             })
-            {
-                
-
+            {                
                 var y = e.Info.Height / 2;
-                int x = 0;
-
+                
                 var path = new SKPath();                
                 path.MoveTo(0, y);
+                path.LineTo(e.Info.Width, y);
 
-                var random = new Random(DateTime.Now.Millisecond);
-
-                while (x < e.Info.Width)
-                {                                        
-                    var next = random.Next(0, 500);
-                    y += next >= 250 ? 1 : -1;
-                    y = Math.Max(0, y);
-                    y = Math.Min(e.Info.Height, y);
-                    path.LineTo(x, e.Info.Height - (y));   
-                    x++;
-                }
-              
                 canvas.DrawPath(path, paint);
             }
         }

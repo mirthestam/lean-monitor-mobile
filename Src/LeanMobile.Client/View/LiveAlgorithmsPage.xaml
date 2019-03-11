@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:LeanMobile.Client.Controls"
              xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
              Title="Live"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              x:Class="LeanMobile.Client.View.LiveAlgorithmsPage"
@@ -11,10 +12,18 @@
         <StackLayout Margin="0">
             <ListView x:Name="AlgorithmsListView"
                       ItemsSource="{Binding Algorithms}"
-                      ItemSelected="ListView_OnItemSelected"
                       RowHeight="150"
+                      RefreshCommand="{Binding RefreshAlgorithmsCommand}"
+                      CachingStrategy="RecycleElement"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsRefreshing}"
                       SeparatorVisibility="None"
                       >
+                <ListView.Behaviors>
+                    <behaviors:EventToCommandBehavior EventName="ItemTapped"
+                                                      Command="{Binding AlgorithmTappedCommand}"
+                                                      EventArgsParameterPath="Item"/>
+                </ListView.Behaviors>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -24,11 +33,6 @@
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <!--<BoxView Grid.Row="1" Margin="5" Color="{DynamicResource SeparatorColor}" 
-                                         BackgroundColor="{DynamicResource PageBackgroundColor}" />
-
-                                <BoxView Grid.Row="1" Margin="6" Color="{DynamicResource PageBackgroundColor}" 
-                                         BackgroundColor="{DynamicResource PageBackgroundColor}"/>-->
 
                                 <BoxView Grid.Row="0" Grid.RowSpan="2" Margin="5" Color="{DynamicResource SeparatorColor}" 
                                          BackgroundColor="{DynamicResource PageBackgroundColor}" />

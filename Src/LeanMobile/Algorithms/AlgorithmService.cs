@@ -25,6 +25,11 @@ namespace LeanMobile.Algorithms
             return _algorithmRepository.GetAlgorithmsAsync();
         }
 
+        public Task<Algorithm> GetAlgorithmAsync(string algorithmId)
+        {
+            return _algorithmRepository.GetAlgorithmAsync(algorithmId);
+        }
+
         private void CreateResultObservable()
         {
             // Create observable for the event
