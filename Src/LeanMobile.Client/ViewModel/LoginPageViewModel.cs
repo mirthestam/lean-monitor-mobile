@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace LeanMobile.Client.ViewModel
 {
-    public class LoginPageViewModel : BindableBase, INavigationAware
+    public class LoginPageViewModel : PageViewModelBase
     {
         private readonly INavigationService _navigationService;
         private readonly ISettingsService _settingsService;
@@ -54,18 +54,10 @@ namespace LeanMobile.Client.ViewModel
             }
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
-        {            
-        }
-
-        public void OnNavigatedTo(INavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
             AccessToken = _settingsService.AuthAccessToken;
             UserToken = _settingsService.AuthUserToken;
-        }
-
-        public void OnNavigatingTo(INavigationParameters parameters)
-        {
         }
     }
 }

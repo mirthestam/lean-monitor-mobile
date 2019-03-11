@@ -5,13 +5,11 @@ using System.Linq;
 using System.Text;
 using LeanMobile.Algorithms;
 using LeanMobile.Utils;
-using Prism.AppModel;
-using Prism.Mvvm;
 using Prism.Navigation;
 
 namespace LeanMobile.Client.ViewModel
 {
-    public class LiveAlgorithmsPageViewModel  : BindableBase, INavigationAware, IApplicationLifecycleAware 
+    public class LiveAlgorithmsPageViewModel  : PageViewModelBase
     {
         private readonly IAlgorithmService _algorithmService;
         private readonly INavigationService _navigationService;
@@ -24,11 +22,7 @@ namespace LeanMobile.Client.ViewModel
             _navigationService = navigationService;
         }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
-        {
-        }
-
-        public async void OnNavigatedTo(INavigationParameters parameters)
+        public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             Algorithms.Clear();
             var algorithms = await _algorithmService.GetAlgorithmsAsync();
@@ -37,18 +31,6 @@ namespace LeanMobile.Client.ViewModel
                 var algorithmViewModel = new AlgorithmViewModel(algorithm);
                 Algorithms.Add(algorithmViewModel);
             }
-        }
-
-        public void OnNavigatingTo(INavigationParameters parameters)
-        {
-        }
-
-        public void OnResume()
-        {
-        }
-
-        public void OnSleep()
-        {            
         }
     }
 }

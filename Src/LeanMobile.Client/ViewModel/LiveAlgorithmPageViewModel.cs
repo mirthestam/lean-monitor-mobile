@@ -4,7 +4,7 @@ using LeanMobile.Algorithms;
 
 namespace LeanMobile.Client.ViewModel
 {
-    public class LiveAlgorithmPageViewModel
+    public class LiveAlgorithmPageViewModel : PageViewModelBase
     {
         private readonly IAlgorithmService _algorithmService;
 

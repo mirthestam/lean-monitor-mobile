@@ -6,18 +6,7 @@ using Prism.Navigation;
 
 namespace LeanMobile.Client.ViewModel
 {
-    public class MainPageViewModel : BindableBase, INavigationAware
+    public class MainPageViewModel : PageViewModelBase
     {
-        public void OnNavigatedFrom(INavigationParameters parameters)
-        {
-        }
-
-        public void OnNavigatedTo(INavigationParameters parameters)
-        {
-        }
-
-        public void OnNavigatingTo(INavigationParameters parameters)
-        {
-        }
     }
 }
