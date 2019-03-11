@@ -11,7 +11,7 @@ namespace LeanMobile.Client.ViewModel
             _algorithm = algorithm;
         }
 
-        public int Id => _algorithm.Id;
+        public string Id => _algorithm.Id;
         public string Name => _algorithm.Name;
 
         public decimal Unrealized { get; set; }
