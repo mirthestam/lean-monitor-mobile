@@ -32,17 +32,19 @@ namespace LeanMobile.Client.ViewModel
                     break;
                 case NavigationMode.New:
                     var algorithmId = parameters.GetValue<string>(LiveAlgorithmPage.Parameters.Id);
-                    await InitializeAlgorithm(algorithmId);
+                    RefreshAlgorithm(algorithmId);
                     break;
                 default:
                     throw new ArgumentException($"Unsupported NavigationMode: {parameters.GetNavigationMode()}", nameof(parameters));
             }
         }
 
-        private async Task InitializeAlgorithm(string algorithmId)
+        private void RefreshAlgorithm(string algorithmId)
         {
-            var algorithm = await _algorithmService.GetAlgorithmAsync(algorithmId);
-            Name = algorithm.Name;
+            _algorithmService.GetAlgorithm(algorithmId).Subscribe(algorithm =>
+            {
+                Name = algorithm.Name;
+            });
         }
 
         private void SubscribeToUpdates()

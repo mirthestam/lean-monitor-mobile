@@ -13,8 +13,6 @@ namespace LeanMobile.Client.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LiveAlgorithmsPage : ContentPage
 	{
-        private LiveAlgorithmsPageViewModel ViewModel => (LiveAlgorithmsPageViewModel) BindingContext;
-
 		public LiveAlgorithmsPage ()
 		{
 			InitializeComponent ();

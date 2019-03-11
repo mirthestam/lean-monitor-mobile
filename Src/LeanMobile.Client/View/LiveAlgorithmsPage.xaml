@@ -12,11 +12,8 @@
         <StackLayout Margin="0">
             <ListView x:Name="AlgorithmsListView"
                       ItemsSource="{Binding Algorithms}"
-                      RowHeight="150"
-                      RefreshCommand="{Binding RefreshAlgorithmsCommand}"
-                      CachingStrategy="RecycleElement"
-                      IsPullToRefreshEnabled="True"
-                      IsRefreshing="{Binding IsRefreshing}"
+                      RowHeight="150"                      
+                      CachingStrategy="RecycleElement"                      
                       SeparatorVisibility="None"
                       >
                 <ListView.Behaviors>

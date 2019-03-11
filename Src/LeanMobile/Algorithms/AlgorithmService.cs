@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
+using Akavache;
 
 namespace LeanMobile.Algorithms
 {
@@ -9,25 +10,33 @@ namespace LeanMobile.Algorithms
     {
         private readonly IAlgorithmRepository _algorithmRepository;
         private readonly IAlgorithmResultProvider _statisticProvider;
+        private readonly IObjectBlobCache _cache;
 
         public IObservable<AlgorithmResult> AlgorithmResults { get; private set; }
 
-        public AlgorithmService(IAlgorithmRepository algorithmRepository, IAlgorithmResultProvider statisticProvider)
+        public AlgorithmService(IAlgorithmRepository algorithmRepository, IAlgorithmResultProvider statisticProvider, IObjectBlobCache cache)
         {
             _algorithmRepository = algorithmRepository;
             _statisticProvider = statisticProvider;
+            _cache = cache;
 
             CreateResultObservable();
         }
 
-        public Task<IEnumerable<Algorithm>> GetAlgorithmsAsync()
+        public IObservable<IEnumerable<Algorithm>> GetAlgorithms()
         {
-            return _algorithmRepository.GetAlgorithmsAsync();
+            // Get the old version from cache. Simultaneously fetch the latest list from the API when the cached data is to old.
+            return _cache.GetAndFetchLatest("Algorithms", async () => await _algorithmRepository.GetAlgorithmsAsync(),
+                offset =>
+                {
+                    var elapsed = DateTimeOffset.Now - offset;
+                    return elapsed.TotalSeconds > 10;
+                });
         }
 
-        public Task<Algorithm> GetAlgorithmAsync(string algorithmId)
+        public IObservable<Algorithm> GetAlgorithm(string algorithmId)
         {
-            return _algorithmRepository.GetAlgorithmAsync(algorithmId);
+            return GetAlgorithms().Select(algorithms => algorithms.First(a => a.Id == algorithmId));
         }
 
         private void CreateResultObservable()

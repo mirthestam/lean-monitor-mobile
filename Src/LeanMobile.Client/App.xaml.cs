@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Linq;
+using System.Reactive;
+using System.Reactive.Linq;
+using Akavache;
+using Akavache.Sqlite3;
 using LeanMobile.Algorithms;
 using LeanMobile.Authentication;
 using LeanMobile.Client.View;
@@ -35,7 +40,8 @@ namespace LeanMobile.Client
             containerRegistry.Register<IAlgorithmRepository, AlgorithmRepository>();
             containerRegistry.RegisterSingleton<IAlgorithmResultProvider, AlgorithmResultProvider>();
             containerRegistry.Register<IApiFactory, ApiFactory>();
-            containerRegistry.Register<IApiService, ApiService>();
+            containerRegistry.Register<IApiService, ApiService>();            
+            containerRegistry.RegisterInstance(typeof(IObjectBlobCache), BlobCache.LocalMachine);
 
             // Views
             containerRegistry.RegisterForNavigation<NavigationPage>();
@@ -49,17 +55,26 @@ namespace LeanMobile.Client
 
         protected override void OnSleep()
         {
-            base.OnSleep();
-        }
+            base.OnSleep(); // Sleeps the viewModels
 
-        protected override void OnStart()
-        {
-            base.OnStart();
+            // Flush the caches
+            var caches = new[]
+            {
+                BlobCache.LocalMachine,
+                BlobCache.Secure
+            };
+            // Flush method is an observable. Merge all observables and wait for them to complete.
+            caches.Select(x => x.Flush())
+                .Merge()
+                .Select(u => Unit.Default)
+                .Wait();
         }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
+
+            Akavache.Registrations.Start("LeanMobile");
 
             await NavigationService.NavigateAsync(nameof(NavigationPage) + "/" + nameof(LoginPage));
         }

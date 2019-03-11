@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -13,7 +14,7 @@ using Xamarin.Forms;
 
 namespace LeanMobile.Client.ViewModel
 {
-    public class LiveAlgorithmsPageViewModel  : PageViewModelBase
+    public class LiveAlgorithmsPageViewModel : PageViewModelBase
     {
         private readonly IAlgorithmService _algorithmService;
         private readonly INavigationService _navigationService;
@@ -30,13 +31,18 @@ namespace LeanMobile.Client.ViewModel
             _algorithmService = algorithmService;
             _navigationService = navigationService;
 
-            RefreshAlgorithmsCommand = new Command(async() => await RefreshAlgorithmsAsync());
+            RefreshAlgorithmsCommand = new Command(RefreshAlgorithms);
             AlgorithmTappedCommand = new Command<AlgorithmViewModel>(async (algorithm) => await NavigateToAlgorithmAsync(algorithm.Id));
         }
 
-        public override async void OnNavigatedTo(INavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            await RefreshAlgorithmsAsync();
+            RefreshAlgorithms();
+        }
+
+        public override void OnResume()
+        {
+            RefreshAlgorithms();
         }
 
         private async Task NavigateToAlgorithmAsync(string id)
@@ -44,30 +50,32 @@ namespace LeanMobile.Client.ViewModel
             await _navigationService.NavigateAsync($"{nameof(LiveAlgorithmPage)}?{LiveAlgorithmPage.Parameters.Id}={id}");
         }
 
-        private async Task RefreshAlgorithmsAsync()
-        {
-            try
+        private void RefreshAlgorithms()
+        {            
+            _algorithmService.GetAlgorithms().Subscribe(algorithms =>
             {
-                IsRefreshing = true;
+                    // Algorithm service might invoke multiple times.
+                    // First, it will fire for the cached data.
+                    // Second, it might fire with updated data retrieved from remote.
+                    algorithms = algorithms.OrderBy(a => a.Name);
 
-                Algorithms.Clear();
-                var algorithms = await _algorithmService.GetAlgorithmsAsync();
-                algorithms = algorithms.OrderBy(a => a.Name);
+                    IsRefreshing = true;
 
-                foreach (var algorithm in algorithms)
-                {
-                    var algorithmViewModel = new AlgorithmViewModel(algorithm);
-                    Algorithms.Add(algorithmViewModel);
-                }
-            }
-            catch
-            {
-                Algorithms.Clear();
-            }
-            finally
-            {
-                IsRefreshing = false;
-            }
+                    try
+                    {
+                        Algorithms.Clear();
+
+                        foreach (var algorithm in algorithms)
+                        {
+                            var algorithmViewModel = new AlgorithmViewModel(algorithm);
+                            Algorithms.Add(algorithmViewModel);
+                        }
+                    }
+                    finally
+                    {
+                        IsRefreshing = false;
+                    }
+            });
         }
     }
 }

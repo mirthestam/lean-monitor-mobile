@@ -8,8 +8,8 @@ namespace LeanMobile.Algorithms
     {
         IObservable<AlgorithmResult> AlgorithmResults { get; }
 
-        Task<IEnumerable<Algorithm>> GetAlgorithmsAsync();
+        IObservable<IEnumerable<Algorithm>> GetAlgorithms();
 
-        Task<Algorithm> GetAlgorithmAsync(string algorithmId);
+        IObservable<Algorithm> GetAlgorithm(string algorithmId);
     }
 }
