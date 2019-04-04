@@ -53,7 +53,7 @@ namespace LeanMobile.Client
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<LiveAlgorithmsPage, LiveAlgorithmsPageViewModel>();
-            containerRegistry.RegisterForNavigation<LiveAlgorithmPage, LiveAlgorithmPageViewModel>();            
+            containerRegistry.RegisterForNavigation<LiveAlgorithmPage, LiveAlgorithmPageViewModel>();   
         }
 
         protected override void OnSleep()

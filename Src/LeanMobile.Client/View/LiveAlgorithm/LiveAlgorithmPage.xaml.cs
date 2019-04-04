@@ -8,7 +8,7 @@ using Xamarin.Forms.Xaml;
 namespace LeanMobile.Client.View.LiveAlgorithm
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LiveAlgorithmPage : ContentPage
+    public partial class LiveAlgorithmPage : TabbedPage
     {
         public class Parameters
         {
@@ -18,19 +18,6 @@ namespace LeanMobile.Client.View.LiveAlgorithm
         public LiveAlgorithmPage()
         {
             InitializeComponent();
-        }
-
-        protected override void OnSizeAllocated(
-            double dblWidth,
-            double dblHeight
-        )
-        {
-            base.OnSizeAllocated(dblWidth, dblHeight);
-
-            // fix for carouselview orientation bug on android
-            if(Device.RuntimePlatform == Device.Android)
-            {
-            }
-        }
+        }        
     }
 }

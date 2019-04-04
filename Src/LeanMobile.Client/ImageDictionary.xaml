@@ -5,7 +5,6 @@
              xmlns:extensions="clr-namespace:LeanMobile.Client.Extensions"
              xmlns:system="clr-namespace:System;assembly=netstandard">
 
-    <!-- TODO: move icons to icons dictionary-->
     <extensions:OnTheme x:Key="DashboardIcon"
                         x:TypeArguments="ImageSource"
                         Dark="baseline_dashboard_24_dark.png"

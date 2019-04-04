@@ -1,37 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:LeanMobile.Client.Controls"
-             xmlns:tabView="clr-namespace:Xam.Plugin.TabView;assembly=Xam.Plugin.TabView"
-             xmlns:dashboard="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Dashboard"
-             xmlns:orders="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Orders"
-             xmlns:liveAlgorithm="clr-namespace:LeanMobile.Client.View.LiveAlgorithm"
-             xmlns:holdings="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Holdings"
-             xmlns:system="clr-namespace:System;assembly=netstandard"
-             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             xmlns:abstractions="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
-             xmlns:tabs="clr-namespace:LeanMobile.Client.Controls.Tabs;assembly=LeanMobile.Client"
-             Title="{Binding Name}"
-             BackgroundColor="{DynamicResource PageBackgroundColor}"
-             x:Class="LeanMobile.Client.View.LiveAlgorithm.LiveAlgorithmPage"
-             prism:ViewModelLocator.AutowireViewModel="True">
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:dashboard="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Dashboard"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:holdings="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Holdings"
+            xmlns:orders="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Orders"
+            xmlns:log="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Log"
+            Title="{Binding Name}"
+            BackgroundColor="{DynamicResource PageBackgroundColor}"
+            x:Class="LeanMobile.Client.View.LiveAlgorithm.LiveAlgorithmPage"
+            prism:ViewModelLocator.AutowireViewModel="True">
 
-    <ContentPage.ToolbarItems>
+    <TabbedPage.ToolbarItems>
         <ToolbarItem Text="Liquidate" Icon="baseline_warning_white_24.png" Order="Secondary"/>
         <ToolbarItem Text="Stop" Icon="baseline_stop_white_24.png" Order="Secondary"/>
-    </ContentPage.ToolbarItems>
-     
-    <ContentPage.Content>
+    </TabbedPage.ToolbarItems>
+
+    <TabbedPage.Children>
+        <dashboard:DashboardPage/>
+        <holdings:HoldingsPage/>
+        <orders:OrdersPage/>
+        <log:LogPage/>
+    </TabbedPage.Children>
+         
+    <!--<ContentPage.Content>
         <StackLayout Spacing="0">
 
-            <!-- Equity Chart -->
+            --><!-- Equity Chart --><!--
             <controls:SimpleLineChart HeightRequest="80" Margin="5"/>
 
             <BoxView HeightRequest="1" 
                      BackgroundColor="{DynamicResource SeparatorColor}" 
                      HorizontalOptions="Fill" />
 
-            <!-- Primary statistics -->
+            --><!-- Primary statistics --><!--
             <liveAlgorithm:PrimaryStatisticsView/>
 
             <BoxView Margin="0,0,0,0"
@@ -39,10 +41,10 @@
                      BackgroundColor="{DynamicResource SeparatorColor}" 
                      HorizontalOptions="Fill" />
 
-            <!-- Tabs -->   
+            --><!-- Tabs --><!--   
             <dashboard:DashboardView x:Name="DashboardView" BindingContext="{Binding Path=Dashboard}"/>
 
-            <!--<tabView:TabViewControl HeaderTabTextFontSize="Small"
+            <tabView:TabViewControl HeaderTabTextFontSize="Small"
                                     HeaderBackgroundColor="Transparent"                                    
                                     HeaderTabTextColor="{DynamicResource TabColor}"
                                     HeaderSelectionUnderlineColor="{DynamicResource ColorAccent}"                                    
@@ -67,8 +69,9 @@
                         <StackLayout/>
                     </tabView:TabItem>
                 </tabView:TabViewControl.ItemSource>
-            </tabView:TabViewControl>-->
+            </tabView:TabViewControl>
 
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentPage.Content>--> 
+    
+</TabbedPage>
