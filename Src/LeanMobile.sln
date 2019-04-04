@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Devices", "Devices", "{4E7E34E5-4F9D-4CBA-8783-F28337A712BE}"
 EndProject
@@ -16,11 +16,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeanMobile.Client", "LeanMobile.Client\LeanMobile.Client.csproj", "{CAA60DEE-533C-4781-A7CC-2A145475CCC1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2CB74C4B-C9BB-4FDB-8B79-DCC5B33564B4}"
-	ProjectSection(SolutionItems) = preProject
-		Notes.txt = Notes.txt
-	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTool", "Tools\ApiTool\ApiTool.csproj", "{48460EF2-0EEF-4C71-AE8B-70EE1F366521}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTool", "Tools\ApiTool\ApiTool.csproj", "{48460EF2-0EEF-4C71-AE8B-70EE1F366521}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{212633C6-4D69-4990-8252-7F34D4A6B9D1}"
 EndProject

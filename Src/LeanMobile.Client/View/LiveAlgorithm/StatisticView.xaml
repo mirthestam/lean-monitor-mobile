@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeanMobile.Client.View.LiveAlgorithm.StatisticView"
+             x:Name="_parent">
+
+    <ContentView.Resources>
+
+        <Style x:Key="MainStatisticLabel" TargetType="Label">
+            <Style.Setters>
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="TextColor" Value="{StaticResource TextAccentColor}"/>
+            </Style.Setters>
+        </Style>
+
+    </ContentView.Resources>
+
+    <ContentView.Content>
+
+        <StackLayout Orientation="Vertical"
+                     HorizontalOptions="Center"
+                     Spacing="5"
+                     Margin="5"
+                     MinimumWidthRequest="100">
+
+            <!-- Value content -->          
+            <ContentView HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand"
+                         IsVisible="True"
+                         Content="{Binding Path=ValueContent, Source={x:Reference _parent}}"/>
+
+            <!-- Label -->
+            <Label HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   LineBreakMode="TailTruncation"
+                   Text="{Binding Path=Label, Source={x:Reference _parent}}"
+                   Style="{StaticResource MainStatisticLabel}"/>
+
+        </StackLayout>
+      
+  </ContentView.Content>
+</ContentView>

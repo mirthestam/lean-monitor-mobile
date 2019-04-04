@@ -3,6 +3,7 @@ using System.Reactive.Linq;
 using System.Threading.Tasks;
 using LeanMobile.Algorithms;
 using LeanMobile.Client.View.LiveAlgorithm;
+using LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard;
 using Prism.Navigation;
 
 namespace LeanMobile.Client.ViewModel
@@ -11,11 +12,13 @@ namespace LeanMobile.Client.ViewModel
     {        
         private readonly IAlgorithmService _algorithmService;
 
+        public DashboardViewViewModel Dashboard { get; set; }
+
         private IDisposable _algorithmResultSubscription;
 
-        public decimal Equity { get; set; } = 103400;
-        public decimal Unrealized { get; set; } = -344.23m;
-        public decimal Holdings { get; set; } = 34.34m;
+        public decimal Equity { get; set; }
+        public decimal Unrealized { get; set; }
+        public decimal Holdings { get; set; }
 
         public string Name { get; set; }
 
@@ -24,14 +27,29 @@ namespace LeanMobile.Client.ViewModel
             _algorithmService = algorithmService;
         }
 
-        public override async void OnNavigatedTo(INavigationParameters parameters)
+        public override void OnNavigatedTo(INavigationParameters parameters)
         {
             switch (parameters.GetNavigationMode())
             {
                 case NavigationMode.Back:
                     break;
                 case NavigationMode.New:
+
                     var algorithmId = parameters.GetValue<string>(LiveAlgorithmPage.Parameters.Id);
+
+                    // Create the view models
+                    var algorithmResultsObservable = _algorithmService.AlgorithmResults.Where(a => a.AlgorithmId == algorithmId);
+                    
+                    algorithmResultsObservable.Select(result => result.Statistics).Subscribe(statistics =>
+                    {
+                        if (statistics == null) return;                             
+                            Equity = statistics.Equity;
+                            Unrealized = statistics.Unrealized;
+                            Holdings = statistics.Holdings;
+                        });
+
+                    Dashboard = new DashboardViewViewModel(algorithmResultsObservable);
+
                     RefreshAlgorithm(algorithmId);
                     break;
                 default:
@@ -45,14 +63,6 @@ namespace LeanMobile.Client.ViewModel
             {
                 Name = algorithm.Name;
             });
-        }
-
-        private void SubscribeToUpdates()
-        {
-            // Pseudo code of how to get updates and update viewModel
-            _algorithmResultSubscription = _algorithmService.AlgorithmResults
-                .Where(update => update.AlgorithmId == 3)
-                .Subscribe(); // TODO: Do something with the subscription
         }
     }
 }

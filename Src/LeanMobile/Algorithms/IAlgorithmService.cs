@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LeanMobile.Algorithms.Results;
 
 namespace LeanMobile.Algorithms
 {

@@ -2,107 +2,33 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dashboard="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Dashboard"
+             xmlns:view="clr-namespace:LeanMobile.Client.View"
              x:Class="LeanMobile.Client.View.LiveAlgorithm.Dashboard.DashboardView">
 
-    <ContentView.Resources>
-        
-    </ContentView.Resources>
-
     <ContentView.Content>
-        <StackLayout Spacing="0">
 
-            <StackLayout Spacing="2"  BackgroundColor="{StaticResource HeaderBackgroundColor}">
-                
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
+        <ScrollView>
 
-                <Label Style="{StaticResource HeaderLabelStyle}"
-                       Margin="5,0"
-                       Text="Statistics"/>
+            <StackLayout Spacing="0">
 
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
+                <view:HeaderView Text="Statistics"/>
+                <dashboard:StatisticsPanel BindingContext="{Binding Statistics}"/>
+               
+                <view:HeaderView Text="Open orders"/>
+                <dashboard:OpenOrdersPanel/>
 
-            </StackLayout>
+                <view:HeaderView Text="Market"/>                
+                <dashboard:MarketPanel/>
 
-            
+                <view:HeaderView Text="Last Orders"/>                
+                <dashboard:LastOrdersPanel/>
 
-            <dashboard:StatisticsPanel/>
-            
-            <StackLayout Spacing="2"  BackgroundColor="{StaticResource HeaderBackgroundColor}">
-                
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-                <Label Style="{StaticResource HeaderLabelStyle}"
-                       Margin="5,0"
-                       Text="Open Orders"/>
-
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
+                <view:HeaderView Text="Server Statistics"/>                
+                <dashboard:ServerStatisticsPanel BindingContext="{Binding ServerStatistics}"/>
 
             </StackLayout>
 
-            <dashboard:OpenOrdersPanel/>
+        </ScrollView>
 
-            <StackLayout Spacing="2"  BackgroundColor="{StaticResource HeaderBackgroundColor}">
-                
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-                <Label Style="{StaticResource HeaderLabelStyle}"
-                       Margin="5,0"
-                       Text="Market"/>
-
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-            </StackLayout>
-
-            <dashboard:MarketPanel/>
-
-            <StackLayout Spacing="2"  BackgroundColor="{StaticResource HeaderBackgroundColor}">
-                
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-                <Label Style="{StaticResource HeaderLabelStyle}"
-                       Margin="5,0"
-                       Text="Last Orders"/>
-
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-            </StackLayout>
-
-            <dashboard:LastOrdersPanel/>
-
-            <StackLayout Spacing="2"  BackgroundColor="{StaticResource HeaderBackgroundColor}">
-                
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-                <Label Style="{StaticResource HeaderLabelStyle}"
-                       Margin="5,0"
-                       Text="Server Statistics"/>
-
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />                
-
-            </StackLayout>
-
-            <dashboard:ServerStatisticsPanel/>
-            
-        </StackLayout>
     </ContentView.Content>
 </ContentView>

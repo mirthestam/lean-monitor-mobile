@@ -1,7 +1,6 @@
 ﻿using System;
-using LeanMobile.Algorithms;
 
-namespace LeanMobile.Algorithms
+namespace LeanMobile.Algorithms.Results
 {
     public interface IAlgorithmResultProvider
     {

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeanMobile.Client.View.HeaderView"
+             x:Name="_parent">
+
+    <ContentView.Resources>
+        <Style x:Key="Separator" TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource HeaderBackgroundColor}"/>
+            <Setter Property="HorizontalOptions" Value="Fill"/>
+        </Style>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+
+      <StackLayout Spacing="2" BackgroundColor="{StaticResource HeaderBackgroundColor}">
+
+          <BoxView Style="{StaticResource Separator}" />
+
+          <Label Style="{StaticResource HeaderLabelStyle}"
+                 Margin="5,0"
+                 Text="{Binding Path=Text, Source={x:Reference _parent}}"/>
+
+          <BoxView Style="{StaticResource Separator}" />
+
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

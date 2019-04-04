@@ -8,9 +8,13 @@
              xmlns:liveAlgorithm="clr-namespace:LeanMobile.Client.View.LiveAlgorithm"
              xmlns:holdings="clr-namespace:LeanMobile.Client.View.LiveAlgorithm.Holdings"
              xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:abstractions="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:tabs="clr-namespace:LeanMobile.Client.Controls.Tabs;assembly=LeanMobile.Client"
              Title="{Binding Name}"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
-             x:Class="LeanMobile.Client.View.LiveAlgorithm.LiveAlgorithmPage">
+             x:Class="LeanMobile.Client.View.LiveAlgorithm.LiveAlgorithmPage"
+             prism:ViewModelLocator.AutowireViewModel="True">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Liquidate" Icon="baseline_warning_white_24.png" Order="Secondary"/>
@@ -35,17 +39,23 @@
                      BackgroundColor="{DynamicResource SeparatorColor}" 
                      HorizontalOptions="Fill" />
 
-            <!-- Tabs -->
-            <tabView:TabViewControl HeaderTabTextFontSize="Small"
+            <!-- Tabs -->   
+            <dashboard:DashboardView x:Name="DashboardView" BindingContext="{Binding Path=Dashboard}"/>
+
+            <!--<tabView:TabViewControl HeaderTabTextFontSize="Small"
                                     HeaderBackgroundColor="Transparent"                                    
                                     HeaderTabTextColor="{DynamicResource TabColor}"
                                     HeaderSelectionUnderlineColor="{DynamicResource ColorAccent}"                                    
                                     HeaderSelectionUnderlineThickness="3"
                                     VerticalOptions="FillAndExpand"
+                                    x:Name="TabViewControl"
+                                    SelectedTabIndex="{Binding SelectedTabIndex}"
                                     >
                 <tabView:TabViewControl.ItemSource>
-                    <tabView:TabItem HeaderText="Dashboard" HeaderIcon="{StaticResource DashboardIcon}" HeaderIconSize="24">                        
-                        <dashboard:DashboardView/>
+                    <tabView:TabItem HeaderText="Dashboard" HeaderIcon="{StaticResource DashboardIcon}" HeaderIconSize="24">
+                        <StackLayout>
+                            <dashboard:DashboardView x:Name="DashboardView" BindingContext="{Binding Path=Dashboard}"/>
+                        </StackLayout>
                     </tabView:TabItem>
                     <tabView:TabItem HeaderText="Holdings" HeaderIcon="{StaticResource HoldingsIcon}" HeaderIconSize="24">
                         <holdings:HoldingsView/>
@@ -57,7 +67,7 @@
                         <StackLayout/>
                     </tabView:TabItem>
                 </tabView:TabViewControl.ItemSource>
-            </tabView:TabViewControl>
+            </tabView:TabViewControl>-->
 
         </StackLayout>
     </ContentPage.Content>

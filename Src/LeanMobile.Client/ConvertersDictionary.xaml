@@ -2,11 +2,14 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:converters="clr-namespace:LeanMobile.Client.Converters">    
+             xmlns:converters="clr-namespace:LeanMobile.Client.Converters"
+             xmlns:utils="clr-namespace:LeanMobile.Client.Utils;assembly=LeanMobile.Client">    
     
     <ResourceDictionary Source="ColorsDictionary.xaml"/>
     
     <converters:DecimalDefaultCurrencyConverter x:Key="DefaultCurrencyConverter"/>
+
+    <utils:NameOfConverter x:Key="NameOfConverter"/>
 
     <converters:DecimalColorConverter x:Key="NegativeCurrencyColorConverter"
                                       UseRed="True" />

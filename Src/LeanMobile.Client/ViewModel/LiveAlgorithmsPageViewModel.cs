@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using LeanMobile.Algorithms;
 using LeanMobile.Client.View.LiveAlgorithm;
-using LeanMobile.Utils;
 using Prism.Navigation;
 using Xamarin.Forms;
 

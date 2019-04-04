@@ -1,10 +1,4 @@
-Volgende taken:
-Cache op Algorithms en projects, Reactive. (Er is nu al een reload van de API merkbaar)
-
 /* Brainstorm over hoe dit moet werekn
-     Algorithms hebben veel data. komt vanaf verschillende functies uit de api. Charts, stats, overizcht, namen, etc.
-     overzichtsscherm heeft lisjt en namen nodig. Alles moet snel tonen.
-     Ik denk aan messaging. Een viewModel die weet WIE hij heeft (op ID),. subscribed op berichten en zo zichzelf bijwerkt
      dus, initieel krijg je een lijst. De namen volgen later. De bedragen volgen later (worden opgevraagd), dit alles async.
      De lijst zelf kan ook muteren, 
      Vraag 1: Wil je dat het overzichtsscherm statistieken bijwerkt? JA! Dus ook die viewmodels, in de list willen al updates krijgen van bedragen etc.

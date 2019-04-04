@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using LeanMobile.Menu;
 using LeanMobile.Settings;
 using Prism.Mvvm;
-using Prism.Navigation;
 
 namespace LeanMobile.Client.ViewModel
-{    
+{
     public class MenuPageViewModel : BindableBase
     {
         private readonly ISettingsService _settingsService;

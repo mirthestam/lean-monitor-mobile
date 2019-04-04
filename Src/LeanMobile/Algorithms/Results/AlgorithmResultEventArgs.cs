@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LeanMobile.Algorithms
+namespace LeanMobile.Algorithms.Results
 {
     public class AlgorithmResultEventArgs : EventArgs
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using Akavache;
+using LeanMobile.Algorithms.Results;
 
 namespace LeanMobile.Algorithms
 {

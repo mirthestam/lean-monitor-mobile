@@ -1,53 +1,86 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:utils="clr-namespace:LeanMobile.Client.Utils;assembly=LeanMobile.Client"
+             xmlns:l="clr-namespace:LeanMobile.Client.View.LiveAlgorithm;assembly=LeanMobile.Client"
              x:Class="LeanMobile.Client.View.LiveAlgorithm.Dashboard.StatisticsPanel">
-  <ContentView.Content>
-<Grid Margin="5" RowSpacing="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+    <ContentView.Content>
+        
+        <Grid Margin="0" Padding="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="0"
-                                       Grid.Column="0"
-                                       HorizontalOptions="Center"
-                                       Text="23.00"/>
+            <l:StatisticView Grid.Column="0"
+                             Label="Fees">
+                <Label Text="{Binding Path=Fees, Converter={StaticResource DefaultCurrencyConverter}}"/>
+            </l:StatisticView>
 
-                <Label Grid.Row="0"
-                                       Grid.Column="1"
-                                       HorizontalOptions="Center"
-                                       Text="1,000.00"/>
+            <l:StatisticView Grid.Column="1"
+                             Label="Net Profit">
+                <Label Text="{Binding Path=NetProfit, Converter={StaticResource DefaultCurrencyConverter}}"/>
+            </l:StatisticView>
 
-                <Label Grid.Row="0"
-                                       Grid.Column="2"
-                                       HorizontalOptions="Center"
-                                       Text="0,05 %"/>
+            <l:StatisticView Grid.Column="2"
+                             Label="Return">
+                <Label Text="{Binding Path=Return, Converter={StaticResource DefaultCurrencyConverter}}"/>
+            </l:StatisticView>
 
-                <Label Grid.Row="1"
-                                       Grid.Column="0"
-                                       HorizontalOptions="Center"
-                                       TextColor="{StaticResource TextAccentColor}"
-                                       Text="Fees"/>
+        </Grid>
+        
+        <!--<Grid Margin="5" RowSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-                <Label Grid.Row="1"
-                                       Grid.Column="1"
-                                       HorizontalOptions="Center"
-                                       TextColor="{StaticResource TextAccentColor}"
-                                       Text="Net Profit"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-                <Label Grid.Row="1"
-                                       Grid.Column="2"
-                                       HorizontalOptions="Center"
-                                       TextColor="{StaticResource TextAccentColor}"
-                                       Text="Return"/>
+            <Label Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalOptions="CenterAndExpand"            
+                   Text="{Binding Fees, Converter={StaticResource NameOfConverter}}"/>
 
-            </Grid>
-  </ContentView.Content>
+            --><!--<Label Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalOptions="CenterAndExpand"                                       
+                   Text="0"/>--><!--
+
+            <Label Grid.Row="0"
+                   Grid.Column="1"
+                   HorizontalOptions="CenterAndExpand"                                       
+                   Text="{Binding NetProfit, Converter={StaticResource DefaultCurrencyConverter}}"/>
+
+            <Label Grid.Row="0"
+                   Grid.Column="2"
+                   HorizontalOptions="CenterAndExpand"                                       
+                   Text="{Binding Return, StringFormat='{}{0:C2}'}"/>
+
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextAccentColor}"
+                   Text="Fees"/>
+
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextAccentColor}"
+                   Text="Net Profit"/>
+
+            <Label Grid.Row="1"
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextAccentColor}"
+                   Text="Return"/>
+
+        </Grid>-->
+    </ContentView.Content>
 </ContentView>

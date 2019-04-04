@@ -1,24 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:view="clr-namespace:LeanMobile.Client.View"
              x:Class="LeanMobile.Client.View.LiveAlgorithm.Holdings.HoldingsView">
-  <ContentView.Content>
-      <StackLayout>
-            <StackLayout Spacing="2"  BackgroundColor="{StaticResource HeaderBackgroundColor}">
+    <ContentView.Content>
+        <StackLayout>
 
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-                <Label Style="{StaticResource HeaderLabelStyle}"
-                       Margin="5,0"
-                       Text="Symbols"/>
-
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-            </StackLayout>
+            <view:HeaderView Text="Symbols"/>
 
             <Grid Margin="5,5" ColumnSpacing="10">
                 <Grid.ColumnDefinitions>
@@ -82,7 +70,7 @@
                 <Label Grid.Row="1"
                  Grid.Column="3"
                  HorizontalOptions="End"
-                 Text="644.23"/>  
+                 Text="644.23"/>
 
                 <Label Grid.Row="1"
                        Grid.Column="4"
@@ -106,7 +94,7 @@
                 <Label Grid.Row="2"
                        Grid.Column="3"
                        HorizontalOptions="End"
-                       Text="4,534.23"/>  
+                       Text="4,534.23"/>
 
                 <Label Grid.Row="2"
                        Grid.Column="4"
@@ -115,56 +103,42 @@
 
             </Grid>
 
-            <StackLayout Spacing="2"  BackgroundColor="{StaticResource HeaderBackgroundColor}">
+            <view:HeaderView Text="Cash"/>
+            
+            <Grid Margin="5,5" ColumnSpacing="10">
 
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-                <Label Style="{StaticResource HeaderLabelStyle}"
-                       Margin="5,0"
-                       Text="Cash"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-                <BoxView HeightRequest="1" 
-                         BackgroundColor="{DynamicResource SeparatorColor}" 
-                         HorizontalOptions="Fill" />
-
-            </StackLayout>
-
-          <Grid Margin="5,5" ColumnSpacing="10">
-
-              <Grid.ColumnDefinitions>
-                  <ColumnDefinition Width="*"/>
-                  <ColumnDefinition Width="*"/>
-              </Grid.ColumnDefinitions>
-
-              <Grid.RowDefinitions>
-                  <RowDefinition Height="Auto"/>
-                  <RowDefinition Height="Auto"/>
-              </Grid.RowDefinitions>
-
-              <Label Grid.Row="0"
+                <Label Grid.Row="0"
                      Grid.Column="0"
                      TextColor="{DynamicResource TextAccentColor}"
                      Text="Currency"/>
 
-              <Label Grid.Row="0"
+                <Label Grid.Row="0"
                      Grid.Column="1"
                      HorizontalOptions="End"
                      TextColor="{DynamicResource TextAccentColor}"
                      Text="Quantity"/>
 
-              <Label Grid.Row="1"
+                <Label Grid.Row="1"
                      Grid.Column="0"
                      Text="USD"/>
 
-              <Label Grid.Row="1"
+                <Label Grid.Row="1"
                      Grid.Column="1"
                      HorizontalOptions="End"
                      Text="100,000.00"/>
 
-          </Grid>
+            </Grid>
 
         </StackLayout>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>

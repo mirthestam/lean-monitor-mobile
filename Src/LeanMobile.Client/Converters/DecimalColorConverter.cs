@@ -8,6 +8,19 @@ using Xamarin.Forms;
 
 namespace LeanMobile.Client.Converters
 {
+    public class IsNotNullConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return value != null;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
+    }
+
     public class DecimalColorConverter : IValueConverter
     {
         public string TextColorKey { get; set; } = "TextColor";
@@ -49,8 +62,8 @@ namespace LeanMobile.Client.Converters
 
             if (value is OnTheme<Color> theme)
                 return theme.Current;
-            
-            return (Color) value;
+
+            return (Color)value;
         }
     }
 }

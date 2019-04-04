@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:l="clr-namespace:LeanMobile.Client.View.LiveAlgorithm;assembly=LeanMobile.Client"
+             xmlns:tabs="clr-namespace:LeanMobile.Client.Controls.Tabs;assembly=LeanMobile.Client"
              BackgroundColor="{DynamicResource PageBackgroundColor}"
              x:Class="LeanMobile.Client.View.LoginPage"
              prism:ViewModelLocator.AutowireViewModel="True">
@@ -11,6 +13,7 @@
 
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="0,200,0,0">
+                       
             <Entry Placeholder="User ID"
                    Text="{Binding UserToken}"/>
             <Entry Placeholder="Access token"

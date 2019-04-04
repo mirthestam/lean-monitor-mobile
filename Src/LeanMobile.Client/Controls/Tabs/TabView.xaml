@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LeanMobile.Client.Controls.Tabs.TabView"
+             x:Name="_parent">
+  <ContentView.Content>
+      <StackLayout HorizontalOptions="Fill"
+                   VerticalOptions="FillAndExpand">
+          
+          <!-- Icon -->
+          <Image Margin="0,10,0,0"
+                 HorizontalOptions="CenterAndExpand"
+                 VerticalOptions="Center"
+                 WidthRequest="{Binding Path=IconSize, Source={x:Reference _parent}}"
+                 HeightRequest="{Binding Path=IconSize, Source={x:Reference _parent}}"
+                 Source="{Binding Path=Icon, Source={x:Reference _parent}}"
+                 />
+
+          <!-- Label -->
+          <Label Margin="5, 0, 5, 0"
+                 VerticalTextAlignment="Start"
+                 HorizontalTextAlignment="Center"
+                 HorizontalOptions="CenterAndExpand"
+                 Text="{Binding Path=Title, Source={x:Reference _parent}}"
+                 VerticalOptions="Center"/>
+
+          <!-- Selection Underline -->
+          <BoxView VerticalOptions="EndAndExpand"
+                   HeightRequest="3"
+                   BackgroundColor="{DynamicResource ColorAccent}"
+                   IsVisible="{Binding Path=IsActive, Source={x:Reference _parent}}"
+                   />
+
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

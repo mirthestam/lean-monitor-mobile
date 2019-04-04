@@ -5,11 +5,14 @@ using System.Reactive.Linq;
 using Akavache;
 using Akavache.Sqlite3;
 using LeanMobile.Algorithms;
+using LeanMobile.Algorithms.Results;
 using LeanMobile.Authentication;
 using LeanMobile.Client.View;
 using LeanMobile.Client.ViewModel;
 using LeanMobile.Client.Services;
 using LeanMobile.Client.View.LiveAlgorithm;
+using LeanMobile.Client.View.LiveAlgorithm.Dashboard;
+using LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard;
 using LeanMobile.Data;
 using LeanMobile.Data.Algorithm;
 using LeanMobile.Data.Authentication;
@@ -50,7 +53,7 @@ namespace LeanMobile.Client
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<LiveAlgorithmsPage, LiveAlgorithmsPageViewModel>();
-            containerRegistry.RegisterForNavigation<LiveAlgorithmPage, LiveAlgorithmPageViewModel>();
+            containerRegistry.RegisterForNavigation<LiveAlgorithmPage, LiveAlgorithmPageViewModel>();            
         }
 
         protected override void OnSleep()

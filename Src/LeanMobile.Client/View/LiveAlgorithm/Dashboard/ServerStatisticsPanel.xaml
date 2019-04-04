@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              x:Class="LeanMobile.Client.View.LiveAlgorithm.Dashboard.ServerStatisticsPanel">
     <ContentView.Content>
 
@@ -17,37 +18,44 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="0"
-                                       Grid.Column="0"
-                                       HorizontalOptions="Center"
-                                       Text="60 %"/>
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   Text="{Binding CpuUsage}"/>
 
             <Label Grid.Row="0"
-                                       Grid.Column="1"
-                                       HorizontalOptions="Center"
-                                       Text="84 / 512"/>
+                   Grid.Column="1"
+                   HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding MemoryUsed}"/>
+                        <Span Text="/"/>
+                        <Span Text="{Binding MemoryTotal}"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
             <Label Grid.Row="0"
-                                       Grid.Column="2"
-                                       HorizontalOptions="Center"
-                                       Text="8 days"/>
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   Text="0 min."/>
 
             <Label Grid.Row="1"
-                                       Grid.Column="0"
-                                       HorizontalOptions="Center"
-                                       TextColor="{StaticResource TextAccentColor}"
-                                       Text="CPU"/>
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextAccentColor}"
+                   Text="CPU"/>
 
             <Label Grid.Row="1"
-                                       Grid.Column="1"
-                                       HorizontalOptions="Center"
-                                       TextColor="{StaticResource TextAccentColor}"
-                                       Text="Memory"/>
+                   Grid.Column="1"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextAccentColor}"
+                   Text="Memory"/>
 
             <Label Grid.Row="1"
-                                       Grid.Column="2"
-                                       HorizontalOptions="Center"
-                                       TextColor="{StaticResource TextAccentColor}"
-                                       Text="Uptime"/>
+                   Grid.Column="2"
+                   HorizontalOptions="Center"
+                   TextColor="{StaticResource TextAccentColor}"
+                   Text="Uptime"/>
 
         </Grid>
     </ContentView.Content>
