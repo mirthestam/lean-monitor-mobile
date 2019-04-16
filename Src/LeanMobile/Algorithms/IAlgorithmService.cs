@@ -11,6 +11,10 @@ namespace LeanMobile.Algorithms
 
         IObservable<IEnumerable<Algorithm>> GetAlgorithms();
 
-        IObservable<Algorithm> GetAlgorithm(string algorithmId);
+        IObservable<Algorithm> GetAlgorithm(AlgorithmId algorithmId);
+
+        void Subscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType);
+
+        void ClearSubscriptions();
     }
 }

@@ -10,7 +10,7 @@ namespace LeanMobile.Data.Remote
         Task<AuthenticationResponse> GetAuthenticateAsync();
 
         [Get("/live/read")] // TODO: implement query string parameters DateTime start, DateTime end
-        Task<LiveListResponse> GetLiveAlgorithmListAsync();// Original method is ListLiveAlgorithms        
+        Task<LiveListResponse> GetLiveAlgorithmListAsync([AliasAs("status")]AlgorithmStatus algorithmStatus);// Original method is ListLiveAlgorithms        
 
         [Get("/live/read")]
         Task<LiveAlgorithmResultsResponse> GetLiveAlgorithmResultsAsync([AliasAs("projectId")]int projectId, [AliasAs("deployId")]string deployId); // Original method is ReadLiveAlgorithm

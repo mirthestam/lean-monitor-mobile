@@ -32,17 +32,9 @@ namespace LeanMobile.Client.ViewModel
 
             MenuItems = new ObservableCollection<MenuItem>(new List<MenuItem>
             {
-                new MenuItem
-                {
-                    MenuItemType = MenuItemType.Live,
-                    Title = "Live"
-                },                
-                new MenuItem
-                {
-                    MenuItemType = MenuItemType.Settings,
-                    Title = "Settings"
-                }
+                new MenuItem { MenuItemType = MenuItemType.Live, Title = "Live" },
+                new MenuItem { MenuItemType = MenuItemType.Settings, Title = "Settings" }
             });
-        }       
+        }
     }
 }

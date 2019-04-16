@@ -28,22 +28,26 @@ namespace LeanMobile.Client
 {
     public partial class App
     {
+        private IContainerProvider _containerProvider;
+
         public App() : this(null) { }
 
         public App(IPlatformInitializer platformInitializer) : base(platformInitializer) { }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            _containerProvider = (IContainerProvider)containerRegistry;
+
             // Services
             containerRegistry.RegisterSingleton<ISettingsService, SettingsService>();
             containerRegistry.Register<IAuthenticationService, AuthenticationService>();
-            containerRegistry.RegisterSingleton<IAlgorithmService, AlgorithmService>();
+            containerRegistry.Register<IAlgorithmService, AlgorithmService>();
 
             // Data
             containerRegistry.Register<IAlgorithmRepository, AlgorithmRepository>();
-            containerRegistry.RegisterSingleton<IAlgorithmResultProvider, AlgorithmResultProvider>();
-            containerRegistry.Register<IApiFactory, ApiFactory>();
-            containerRegistry.Register<IApiService, ApiService>();            
+            containerRegistry.Register<IAlgorithmResultProvider, PollingAlgorithmResultProvider>();
+            containerRegistry.RegisterSingleton<IApiFactory, ApiFactory>();
+            containerRegistry.RegisterSingleton<IApiService, ApiService>();            
             containerRegistry.RegisterInstance(typeof(IObjectBlobCache), BlobCache.LocalMachine);
 
             // Views
@@ -79,7 +83,17 @@ namespace LeanMobile.Client
 
             Akavache.Registrations.Start("LeanMobile");
 
-            await NavigationService.NavigateAsync(nameof(NavigationPage) + "/" + nameof(LoginPage));
+            // Check whether we have authantication details
+            var authenticationService = _containerProvider.Resolve<IAuthenticationService>();
+            if (authenticationService.HasCredentials)
+            {
+                // TODO: This code is duplicate with loginpage. Should be refactored to PrimaryNavigationService
+                await NavigationService.NavigateAsync("/" + nameof(MainPage) + "/" + nameof(NavigationPage) + "/" + nameof(LiveAlgorithmsPage));
+            }
+            else
+            {
+                await NavigationService.NavigateAsync(nameof(NavigationPage) + "/" + nameof(LoginPage));
+            }
         }
     }
 }

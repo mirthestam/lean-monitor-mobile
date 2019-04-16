@@ -2,7 +2,7 @@
 {
     public enum AppTheme
     {
-        Dark,
-        Light
+        Dark = 0,
+        Light = 1
     }
 }

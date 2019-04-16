@@ -8,8 +8,8 @@ namespace LeanMobile.Data
     {
         private readonly ISettingsService _settingsService;
         private readonly IApiFactory _apiFactory;
-        
-        private Lazy<IApi> _api;
+
+        private readonly Lazy<IApi> _api;
 
         public IApi Api => _api.Value;
 
@@ -18,7 +18,7 @@ namespace LeanMobile.Data
             _settingsService = settingsService;
             _apiFactory = apiFactory;
             _api = new Lazy<IApi>(CreateApi);
-        }        
+        }
 
         private IApi CreateApi()
         {

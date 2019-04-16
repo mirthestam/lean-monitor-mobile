@@ -42,9 +42,14 @@ namespace LeanMobile.Client.ViewModel
             RefreshAlgorithms();
         }
 
-        private async Task NavigateToAlgorithmAsync(string id)
+        private async Task NavigateToAlgorithmAsync(AlgorithmId id)
         {
-            await _navigationService.NavigateAsync($"{nameof(LiveAlgorithmPage)}?{LiveAlgorithmPage.Parameters.Id}={id}");
+            var parameters = new NavigationParameters
+            {
+                { LiveAlgorithmPage.Parameters.Id, id }
+            };
+
+            await _navigationService.NavigateAsync(nameof(LiveAlgorithmPage), parameters);
         }
 
         private void RefreshAlgorithms()
@@ -60,12 +65,18 @@ namespace LeanMobile.Client.ViewModel
 
                     try
                     {
+                        _algorithmService.ClearSubscriptions();
+
                         Algorithms.Clear();
 
                         foreach (var algorithm in algorithms)
                         {
-                            var algorithmViewModel = new AlgorithmViewModel(algorithm);
+                            var algorithmViewModel = new AlgorithmViewModel(algorithm, _algorithmService.AlgorithmResults.Where(r => r.AlgorithmId == algorithm.Id));
                             Algorithms.Add(algorithmViewModel);
+
+                            // Request updates for this algoritm
+                            // We need this data to update primary statistics
+                            _algorithmService.Subscribe(algorithm.Id, ResultSubscriptionType.LiveResults);
                         }
                     }
                     finally

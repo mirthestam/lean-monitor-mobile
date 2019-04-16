@@ -2,9 +2,9 @@
 {
     public enum AlgorithmStatus
     {
-        Running,
-        Stopped,
-        Liquidated,
-        Completed
+        Running = 0,
+        Stopped = 1,
+        Liquidated = 2,
+        Completed = 3
     }
 }

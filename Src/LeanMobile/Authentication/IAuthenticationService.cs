@@ -5,5 +5,7 @@ namespace LeanMobile.Authentication
     public interface IAuthenticationService
     {
         Task<bool> IsAuthenticated(string authUserToken, string authAccessToken);
+
+        bool HasCredentials { get; }
     }
 }

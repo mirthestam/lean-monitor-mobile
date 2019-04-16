@@ -2,9 +2,9 @@
 {
     public enum MenuItemType
     {
-        Live,
-        Projects,
-        Help,
-        Settings
+        Live = 0,
+        Projects = 1,
+        Help = 2,
+        Settings = 3
     }
 }

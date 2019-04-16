@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Reactive.Linq;
-using System.Threading.Tasks;
 using LeanMobile.Algorithms;
 using LeanMobile.Client.View.LiveAlgorithm;
 using LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard;
@@ -9,12 +8,12 @@ using Prism.Navigation;
 namespace LeanMobile.Client.ViewModel
 {
     public class LiveAlgorithmPageViewModel : PageViewModelBase
-    {        
+    {
         private readonly IAlgorithmService _algorithmService;
 
-        public DashboardViewViewModel Dashboard { get; set; }
+        private AlgorithmId _algorithmId;
 
-        private IDisposable _algorithmResultSubscription;
+        public DashboardViewViewModel Dashboard { get; set; }
 
         public decimal Equity { get; set; }
         public decimal Unrealized { get; set; }
@@ -33,36 +32,63 @@ namespace LeanMobile.Client.ViewModel
             {
                 case NavigationMode.Back:
                     break;
+
                 case NavigationMode.New:
 
-                    var algorithmId = parameters.GetValue<string>(LiveAlgorithmPage.Parameters.Id);
+                    _algorithmId = parameters.GetValue<AlgorithmId>(LiveAlgorithmPage.Parameters.Id);
 
-                    // Create the view models
-                    var algorithmResultsObservable = _algorithmService.AlgorithmResults.Where(a => a.AlgorithmId == algorithmId);
-                    
-                    algorithmResultsObservable.Select(result => result.Statistics).Subscribe(statistics =>
-                    {
-                        if (statistics == null) return;                             
-                            Equity = statistics.Equity;
-                            Unrealized = statistics.Unrealized;
-                            Holdings = statistics.Holdings;
-                        });
+                    // Subscrive to updates for this algorithm
+                    Subscribe();
 
-                    Dashboard = new DashboardViewViewModel(algorithmResultsObservable);
-
-                    RefreshAlgorithm(algorithmId);
+                    RefreshAlgorithm();
                     break;
+
                 default:
-                    throw new ArgumentException($"Unsupported NavigationMode: {parameters.GetNavigationMode()}", nameof(parameters));
+                    throw new ArgumentException($"Unsupported NavigationMode: {parameters.GetNavigationMode()}",
+                                                nameof(parameters));
             }
         }
 
-        private void RefreshAlgorithm(string algorithmId)
+        public override void OnSleep()
         {
-            _algorithmService.GetAlgorithm(algorithmId).Subscribe(algorithm =>
+            Unsubscribe();
+        }
+
+        public override void OnResume()
+        {
+            Subscribe();
+        }
+
+        private void Subscribe()
+        {
+            // TODO: Subscribe to this algorithm
+            _algorithmService.Subscribe(_algorithmId, ResultSubscriptionType.LiveResults | ResultSubscriptionType.Log);
+        }
+
+        private void Unsubscribe()
+        {
+            _algorithmService.ClearSubscriptions();
+        }
+
+        private void RefreshAlgorithm()
+        {
+            // Get the algorithm information
+            _algorithmService
+                .GetAlgorithm(_algorithmId)
+                .Subscribe(algorithm => Name = algorithm.Name);
+
+            // Create the view models
+            var algorithmResultsObservable = _algorithmService.AlgorithmResults.Where(a => a.AlgorithmId == _algorithmId);
+
+            algorithmResultsObservable.Select(result => result.Statistics).Subscribe(statistics =>
             {
-                Name = algorithm.Name;
+                if (statistics == null) return;
+                Equity = statistics.Equity;
+                Unrealized = statistics.Unrealized;
+                Holdings = statistics.Holdings;
             });
+
+            Dashboard = new DashboardViewViewModel(algorithmResultsObservable);
         }
     }
 }

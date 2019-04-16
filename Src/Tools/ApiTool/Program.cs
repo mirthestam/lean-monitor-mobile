@@ -19,6 +19,7 @@ namespace ApiTool
     public class Tool
     {
         private IApi _api;
+
         public async Task Run()
         {
             const string authUserToken = "***REMOVED***";
@@ -31,10 +32,10 @@ namespace ApiTool
             _api = Create(authUserToken, authAccessToken, endpointAddress);
 
             //var liveAlgorithmResponse = await _api.GetLiveAlgorithmListAsync();
-            //var liveAlgorithmResultsResponse = await _api.GetLiveAlgorithmResultsAsync(projectId, deployId);
+            var liveAlgorithmResultsResponse = await _api.GetLiveAlgorithmResultsAsync(projectId, deployId);
             //var logsResponse = await _api.GetLiveAlgorithmLogs(projectId, deployId);
             //var projectsResponse = await _api.GetProjectsAsync();
-            var projectResponse = await _api.GetProjectAsync(projectId);
+            //var projectResponse = await _api.GetProjectAsync(projectId).ConfigureAwait(false);
         }
 
         public IApi Create(string authUserToken, string authAccessToken, string endpointAddress)

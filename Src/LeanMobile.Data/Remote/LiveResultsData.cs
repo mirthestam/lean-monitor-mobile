@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using NullGuard;
 
 namespace LeanMobile.Data.Remote
 {
@@ -11,6 +12,7 @@ namespace LeanMobile.Data.Remote
         [JsonProperty(PropertyName = "resolution"), JsonConverter(typeof(StringEnumConverter))]
         public Resolution Resolution { get; set; }
 
+        [AllowNull]
         [JsonProperty(PropertyName = "results")]
         public LiveResult Results { get; set; }
     }

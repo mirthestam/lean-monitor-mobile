@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using NullGuard;
+using System.Collections.Generic;
 
 namespace LeanMobile.Data.Remote
 {
@@ -17,6 +18,7 @@ namespace LeanMobile.Data.Remote
         /// <summary>
         /// Server status information, including CPU/RAM usage, ect...
         /// </summary>
-        public IDictionary<string, string> ServerStatistics = new Dictionary<string, string>();
+        [AllowNull]
+        public IDictionary<string, string> ServerStatistics { get; set; }
     }
 }

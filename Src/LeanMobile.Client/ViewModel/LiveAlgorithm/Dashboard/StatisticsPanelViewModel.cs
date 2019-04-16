@@ -17,8 +17,7 @@ namespace LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard
         public decimal Return { get; set; } = 0;
 
         public StatisticsPanelViewModel(IObservable<AlgorithmResult> algorithmResults)
-        {
-            Fees = 340;
+        {            
             algorithmResults.Select(r => r.Statistics).Subscribe(statistics =>
             {
                 if (statistics == null) return;

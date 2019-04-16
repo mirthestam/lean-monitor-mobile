@@ -21,7 +21,7 @@ namespace LeanMobile.Data.Algorithm
         {
             var algorithms = new List<Algorithms.Algorithm>();
 
-            var remoteAlgorithmResponse = await _apiService.Api.GetLiveAlgorithmListAsync();
+            var remoteAlgorithmResponse = await _apiService.Api.GetLiveAlgorithmListAsync(RemoteAlgorithmStatus.Running);
             var remoteProjectResponse = await _apiService.Api.GetProjectsAsync();
 
             remoteAlgorithmResponse.EnsureSuccess();
@@ -33,7 +33,11 @@ namespace LeanMobile.Data.Algorithm
 
                 var algorithm = new Algorithms.Algorithm
                 {
-                    Id = remoteAlgorithm.DeployId,
+                    Id = new AlgorithmId
+                    {
+                        DeployId = remoteAlgorithm.DeployId,
+                        ProjectId = remoteAlgorithm.ProjectId
+                    },
                     LaunchedDateTime = remoteAlgorithm.Launched,
                     Name = project.Name
                 };
@@ -57,7 +61,7 @@ namespace LeanMobile.Data.Algorithm
                         break;
 
                     default:
-                        throw new Exception("Unexpected algorithm status");                
+                        throw new Exception("Unexpected algorithm status");
                 }
 
                 algorithms.Add(algorithm);
@@ -69,8 +73,7 @@ namespace LeanMobile.Data.Algorithm
         public async Task<Algorithms.Algorithm> GetAlgorithmAsync(string algorithmId)
         {
             var algorithms = await GetAlgorithmsAsync();
-            var algorithm = algorithms.First(a => a.Id == algorithmId);
-            return algorithm;
+            return algorithms.First(a => a.Id.DeployId == algorithmId);
         }
     }
 }

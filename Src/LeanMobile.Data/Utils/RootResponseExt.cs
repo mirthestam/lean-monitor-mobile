@@ -12,7 +12,7 @@ namespace LeanMobile.Data.Utils
         {
             if (!response.Success)
             {
-                throw new Exception(response.Errors.First());
+                throw new Exception(response.Errors[0]);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NullGuard;
+using System;
 using System.Collections.Generic;
 
 namespace LeanMobile.Data.Remote
@@ -20,10 +21,13 @@ namespace LeanMobile.Data.Remote
          public IDictionary<int, Order> Orders = new Dictionary<int, Order>();
          */
 
-        public IDictionary<DateTime, decimal> ProfitLoss = new Dictionary<DateTime, decimal>();
+        [AllowNull]
+        public IDictionary<DateTime, decimal> ProfitLoss { get; set; }  = new Dictionary<DateTime, decimal>();
 
-        public IDictionary<string, string> Statistics = new Dictionary<string, string>();
+        [AllowNull]
+        public IDictionary<string, string> Statistics { get; set; } = new Dictionary<string, string>();
 
-        public IDictionary<string, string> RuntimeStatistics = new Dictionary<string, string>();
+        [AllowNull]
+        public IDictionary<string, string> RuntimeStatistics { get; set; } = new Dictionary<string, string>();
     }
 }

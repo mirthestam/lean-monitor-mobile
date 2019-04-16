@@ -37,7 +37,7 @@ namespace LeanMobile.Client.ViewModel
         }
 
         private async Task LoginAsync()
-        {            
+        {
             var authenticated = await _authenticationService.IsAuthenticated(UserToken, AccessToken);
 
             if (authenticated)
@@ -54,7 +54,7 @@ namespace LeanMobile.Client.ViewModel
             }
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public async override void OnNavigatedTo(INavigationParameters parameters)
         {
             AccessToken = _settingsService.AuthAccessToken;
             UserToken = _settingsService.AuthUserToken;

@@ -19,7 +19,7 @@ namespace LeanMobile.Data.Authentication
         public async Task<bool> IsAuthenticated(string authUserToken, string authAccessToken)
         {
             try
-            {                
+            {
                 // Create a new API we can use to test the credentials with
                 var api = _apiFactory.Create(authUserToken, authAccessToken, _settingsService.EndpointAddress);
 
@@ -30,6 +30,16 @@ namespace LeanMobile.Data.Authentication
             catch
             {
                 return false;
+            }
+        }
+
+        public bool HasCredentials
+        {
+            get
+            {
+                var authAccessToken = _settingsService.AuthAccessToken;
+                var AuthUserToken = _settingsService.AuthUserToken;
+                return !string.IsNullOrWhiteSpace(authAccessToken + AuthUserToken);
             }
         }
     }

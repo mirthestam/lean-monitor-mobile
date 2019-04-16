@@ -10,9 +10,9 @@ namespace LeanMobile.Data.Remote.Factory
         public IApi Create(string authUserToken, string authAccessToken, string endpointAddress)
         {
             var httpClientHandler = new AuthenticatedHttpClientHandler(authUserToken, authAccessToken);
-            var httpMessageHandler = new RateLimitedHttpMessageHandler(httpClientHandler, Priority.UserInitiated);
+            //var httpMessageHandler = new RateLimitedHttpMessageHandler(httpClientHandler, Priority.UserInitiated);
 
-            var httpClient = new HttpClient(httpMessageHandler)
+            var httpClient = new HttpClient(httpClientHandler)
             {
                 BaseAddress = new Uri(endpointAddress)
             };

@@ -8,9 +8,11 @@ namespace LeanMobile.Client.Services
         private const string AuthUserTokenKey = "AuthUserToken";
         private const string AuthAccessTokenKey = "AuthAccessToken";
         private const string EndpointAddressKey = "EndpointAddress";
+        private const string PollingIntervalKey = "PollingInterval";
 
         private const string EndpointAddressDefault = "https://www.quantconnect.com/api/v2";
-       
+        private const int PollingIntervalDefault = 2000;
+
         public string AuthUserToken
         {
             get => GetValueOrDefault<string>(AuthUserTokenKey);
@@ -29,7 +31,13 @@ namespace LeanMobile.Client.Services
             set => SetValue(EndpointAddressKey, value);
         }
 
-        private static T GetValueOrDefault<T>(string key, T defaultValue = default(T))
+        public int PollingIntervalInMilliSeconds
+        {
+            get => GetValueOrDefault(PollingIntervalKey, PollingIntervalDefault);
+            set => SetValue(PollingIntervalKey, value);
+        }
+
+        private static T GetValueOrDefault<T>(string key, T defaultValue = default)
         {
             if (!Application.Current.Properties.TryGetValue(key, out var value))
             {
@@ -40,7 +48,7 @@ namespace LeanMobile.Client.Services
         }
 
         private static async void SetValue(string key, object value)
-        {            
+        {
             Application.Current.Properties[key] = value;
             await Application.Current.SavePropertiesAsync();
         }
