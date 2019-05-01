@@ -1,83 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Akavache;
 using LeanMobile.Algorithms;
 using LeanMobile.Algorithms.Results;
-using LeanMobile.Data.Remote;
-using LeanMobile.Data.Remote.Responses;
-using LeanMobile.Data.Utils;
 using LeanMobile.Settings;
 
-namespace LeanMobile.Data
+namespace LeanMobile.Data.Algorithm
 {
-    public abstract class AlgorithmResultProvider : IAlgorithmResultProvider
+    public class AlgorithmResultProvider : AlgorithmResultProviderBase
     {
-        protected readonly Dictionary<AlgorithmId, ResultSubscriptionType> _subscriptions = new Dictionary<AlgorithmId, ResultSubscriptionType>();
+        // AlgorithmResultProvider that implements polling to fetch updates from the API
 
-        public event EventHandler<AlgorithmResultEventArgs> AlgorithmResultReceived;
-
-        public abstract void Run();
-
-        public abstract void Abort();
-
-        protected virtual void OnAlgorithmResultUpdated(AlgorithmResultEventArgs e)
-        {
-            AlgorithmResultReceived?.Invoke(this, e);
-        }
-
-        public void Subscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType)
-        {
-            lock (_subscriptions)
-            {
-                if (_subscriptions.TryGetValue(algorithmId, out ResultSubscriptionType newSubscription))
-                {
-                    newSubscription &= resultSubscriptionType;
-                }
-                else
-                {
-                    newSubscription = resultSubscriptionType;
-                }
-
-                _subscriptions[algorithmId] = newSubscription;
-            }
-        }
-
-        public void Unsubscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType = ResultSubscriptionType.All)
-        {
-            lock (_subscriptions)
-            {
-                if (resultSubscriptionType == ResultSubscriptionType.All)
-                {
-                    _subscriptions.Remove(algorithmId);
-                }
-                else
-                {
-                    var subscription = _subscriptions[algorithmId];
-                    subscription &= ~resultSubscriptionType;
-                }
-            }
-        }
-
-        public void ClearSubscriptions()
-        {
-            lock (_subscriptions)
-            { 
-                _subscriptions.Clear();
-            }
-        }
-    }
-
-    public class PollingAlgorithmResultProvider : AlgorithmResultProvider
-    {
         private static readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+       
+        private readonly IApiResultParser _apiResultParser = new ApiResultParser();
 
         private readonly IApiService _apiService;
         private readonly ISettingsService _settingsService;
 
-        public PollingAlgorithmResultProvider(IApiService apiService, ISettingsService settingsService)
+        public AlgorithmResultProvider(IApiService apiService, ISettingsService settingsService)
         {
             _apiService = apiService;
             _settingsService = settingsService;
@@ -99,21 +42,20 @@ namespace LeanMobile.Data
 
             while (!_cancellationTokenSource.IsCancellationRequested)
             {
-                await Task.Delay(interval, _cancellationTokenSource.Token).ContinueWith(async _ =>
+                foreach (var subscription in _subscriptions.ToList())
                 {
-                    foreach (var subscription in _subscriptions.ToList())
+                    try
                     {
-                        try
-                        {
-                            await PollAlgorithm(subscription.Key, subscription.Value);
-                        }
-                        catch
-                        {
-                            // TODO: Write log
-                            // For now, just continue and ignore this subscription
-                        }
+                        await PollAlgorithm(subscription.Key, subscription.Value);
                     }
-                });
+                    catch
+                    {
+                        // TODO: Write log
+                        // For now, just continue and ignore this subscription
+                    }
+                }
+
+                await Task.Delay(interval, _cancellationTokenSource.Token);
             }
         }
 
@@ -123,7 +65,8 @@ namespace LeanMobile.Data
 
             var result = new AlgorithmResult
             {
-                AlgorithmId = algorithmId
+                AlgorithmId = algorithmId,
+                TimeStamp = DateTime.UtcNow
             };
 
             if ((subscription & ResultSubscriptionType.LiveResults) != 0)
@@ -131,9 +74,9 @@ namespace LeanMobile.Data
                 try
                 {
                     var remoteLiveAlgorithmResults = await _apiService.Api.GetLiveAlgorithmResultsAsync(algorithmId.ProjectId, algorithmId.DeployId);
-                    ProcessLiveResult(result, remoteLiveAlgorithmResults);
+                    _apiResultParser.ProcessLiveResult(result, remoteLiveAlgorithmResults);
                 }
-                catch
+                catch(Exception ex)
                 {
                     // TODO: Log
                 }
@@ -143,8 +86,8 @@ namespace LeanMobile.Data
             {
                 try
                 {
-                    var logResults = await _apiService.Api.GetLiveAlgorithmLogs(algorithmId.ProjectId, algorithmId.DeployId);
-                    ProcessLogResult(result, logResults);
+                    // var logResults = await _apiService.Api.GetLiveAlgorithmLogs(algorithmId.ProjectId, algorithmId.DeployId);
+                    // _apiResultParser.ProcessLogResult(result, logResults);
                 }
                 catch
                 {
@@ -154,52 +97,6 @@ namespace LeanMobile.Data
 
             // Fire the result event
             OnAlgorithmResultUpdated(new AlgorithmResultEventArgs(result));
-        }
-
-        private void ProcessLiveResult(AlgorithmResult result, LiveAlgorithmResultsResponse response)
-        {
-            response.EnsureSuccess();
-
-            var serverStatistics = response.LiveResults?.Results?.ServerStatistics;
-            if (serverStatistics != null)
-            {
-                result.ServerStatistics = new ServerStatistics();
-
-                if (serverStatistics.TryGetValue("CpuUsage", out string statistic))
-                {
-                    // TODO: Parse the statistic
-                    result.ServerStatistics.CpuUsage = 0;
-                }
-
-                if (serverStatistics.TryGetValue("Uptime", out statistic))
-                {
-                    // TODO: Parse the statistic
-                    result.ServerStatistics.Uptime = new TimeSpan();
-                }
-
-                if (serverStatistics.TryGetValue("MemoryUsed", out statistic))
-                {
-                    // TODO: Parse the statistic
-                    result.ServerStatistics.MemoryUsed = 0;
-                }
-
-                if (serverStatistics.TryGetValue("MemoryTotal", out statistic))
-                {
-                    // TODO: Parse the statistic
-                    result.ServerStatistics.MemoryTotal = 0;
-                }
-            }
-
-            // TODO: parse runtime statistics
-            // TODO: Parse statistics
-            // TODO: Parse Profit Loss
-        }
-
-        private void ProcessLogResult(AlgorithmResult result, LiveLogResponse response)
-        {
-            response.EnsureSuccess();
-
-            result.Log = response.Logs;
         }
     }
 }

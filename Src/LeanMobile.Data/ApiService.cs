@@ -1,5 +1,5 @@
 ﻿using System;
-using LeanMobile.Data.Remote;
+using LeanMobile.Data.Model;
 using LeanMobile.Settings;
 
 namespace LeanMobile.Data

@@ -11,7 +11,7 @@ namespace LeanMobile.Client.Services
         private const string PollingIntervalKey = "PollingInterval";
 
         private const string EndpointAddressDefault = "https://www.quantconnect.com/api/v2";
-        private const int PollingIntervalDefault = 2000;
+        private const int PollingIntervalDefault = 5000;
 
         public string AuthUserToken
         {

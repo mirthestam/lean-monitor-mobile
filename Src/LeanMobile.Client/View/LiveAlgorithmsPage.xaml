@@ -13,7 +13,8 @@
             <ListView x:Name="AlgorithmsListView"
                       ItemsSource="{Binding Algorithms}"
                       RowHeight="150"                      
-                      CachingStrategy="RecycleElement"                      
+                      CachingStrategy="RecycleElement"     
+                      SelectionMode="None"
                       SeparatorVisibility="None"
                       >
                 <ListView.Behaviors>

@@ -3,6 +3,7 @@ using System.Reactive.Linq;
 using LeanMobile.Algorithms;
 using LeanMobile.Client.View.LiveAlgorithm;
 using LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard;
+using LeanMobile.Client.ViewModel.LiveAlgorithm.Orders;
 using Prism.Navigation;
 
 namespace LeanMobile.Client.ViewModel
@@ -14,6 +15,8 @@ namespace LeanMobile.Client.ViewModel
         private AlgorithmId _algorithmId;
 
         public DashboardViewViewModel Dashboard { get; set; }
+
+        public OrdersViewViewModel Orders { get; set; }
 
         public decimal Equity { get; set; }
         public decimal Unrealized { get; set; }
@@ -37,10 +40,11 @@ namespace LeanMobile.Client.ViewModel
 
                     _algorithmId = parameters.GetValue<AlgorithmId>(LiveAlgorithmPage.Parameters.Id);
 
+                    RefreshAlgorithm();
+
                     // Subscrive to updates for this algorithm
                     Subscribe();
 
-                    RefreshAlgorithm();
                     break;
 
                 default:
@@ -72,13 +76,11 @@ namespace LeanMobile.Client.ViewModel
 
         private void RefreshAlgorithm()
         {
-            // Get the algorithm information
-            _algorithmService
-                .GetAlgorithm(_algorithmId)
-                .Subscribe(algorithm => Name = algorithm.Name);
-
             // Create the view models
             var algorithmResultsObservable = _algorithmService.AlgorithmResults.Where(a => a.AlgorithmId == _algorithmId);
+            Dashboard = new DashboardViewViewModel(algorithmResultsObservable);
+            Orders = new OrdersViewViewModel(algorithmResultsObservable);
+
 
             algorithmResultsObservable.Select(result => result.Statistics).Subscribe(statistics =>
             {
@@ -88,7 +90,10 @@ namespace LeanMobile.Client.ViewModel
                 Holdings = statistics.Holdings;
             });
 
-            Dashboard = new DashboardViewViewModel(algorithmResultsObservable);
+            // Get the algorithm information
+            _algorithmService
+                .GetAlgorithm(_algorithmId)
+                .Subscribe(algorithm => Name = algorithm.Name);
         }
     }
 }

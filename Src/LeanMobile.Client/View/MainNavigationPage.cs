@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace LeanMobile.Client.View
 {
-	public class MainNavigationPage : NavigationPage, INavigationPageOptions
-	{
-		public MainNavigationPage ()
-		{
-		}
+    public class MainNavigationPage : NavigationPage, INavigationPageOptions
+    {
+        public MainNavigationPage()
+        {
+        }
 
         public bool ClearNavigationStackOnNavigation => false;
     }

@@ -3,92 +3,119 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:view="clr-namespace:LeanMobile.Client.View"
              x:Class="LeanMobile.Client.View.LiveAlgorithm.Orders.OrdersView">
+
+    <ContentView.Resources>
+        <ColumnDefinitionCollection x:Key="OrderColumnDefinitions">
+            <ColumnDefinition Width="70"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
+        </ColumnDefinitionCollection>
+    </ContentView.Resources>
+
     <ContentView.Content>
 
         <StackLayout>
 
-            <view:HeaderView Text="Open"/>
-            
-            <Grid Margin="5,5" ColumnSpacing="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <ListView ItemsSource="{Binding Orders}"
+                      CachingStrategy="RecycleElement"                      
+                      SelectionMode="None"
+                      RowHeight="30"
+                      SeparatorVisibility="None">
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                <ListView.Header>
 
-                <Label Grid.Row="0"
+                    <Grid Margin="5,0" ColumnSpacing="10" ColumnDefinitions="{StaticResource OrderColumnDefinitions}">
+
+                        <Label Grid.Row="0"
                  Grid.Column="0"
-                 TextColor="{DynamicResource TextAccentColor}"
+                               LineBreakMode="TailTruncation"
+                               TextColor="{DynamicResource TextAccentColor}"
                  Text="Date"/>
 
-                <Label Grid.Row="0"
-                 Grid.Column="1"
-                 TextColor="{DynamicResource TextAccentColor}"
-                 Text="Symbol"/>
+						<Label Grid.Row="0"
+				 Grid.Column="1"
+                               LineBreakMode="TailTruncation"
+				 TextColor="{DynamicResource TextAccentColor}"
+				 Text="Symbol"/>
 
-                <Label Grid.Row="0"
+                        <Label Grid.Row="0"
                  Grid.Column="2"
+                               LineBreakMode="TailTruncation"
                  HorizontalOptions="End"
                  TextColor="{DynamicResource TextAccentColor}"
+                 Text="Fill Price"/>
+
+                        <Label Grid.Row="0"
+                 Grid.Column="3"
+                 HorizontalOptions="End"
+                               
+                 TextColor="{DynamicResource TextAccentColor}"
+                               LineBreakMode="TailTruncation"
                  Text="Quantity"/>
 
-                <Label Grid.Row="0"
-                 Grid.Column="3"
-                 HorizontalOptions="End"
-                 TextColor="{DynamicResource TextAccentColor}"
-                 Text="Type"/>
+                        <Label Grid.Row="0"
+                               Grid.Column="4"
+                               HorizontalOptions="Start"
+                               LineBreakMode="TailTruncation"
+                               TextColor="{DynamicResource TextAccentColor}"
+                               Text="Type"/>
 
+                        <Label Grid.Row="0"
+                               Grid.Column="5"
+                               HorizontalOptions="Start"
+                               LineBreakMode="TailTruncation"
+                               TextColor="{DynamicResource TextAccentColor}"
+                               Text="Status"/>
 
-                <Label Grid.Row="1"
-                 Grid.Column="0"
-                 Text="01/01/19"/>
+                    </Grid>
 
-                <Label Grid.Row="1"
-                 Grid.Column="1"
-                 Text="AAPL"/>
+                </ListView.Header>
 
-                <Label Grid.Row="1"
-                 Grid.Column="2"
-                 HorizontalOptions="End"
-                 Text="3"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid VerticalOptions="Center"
+                                  Margin="5,5"
+                                  ColumnSpacing="10"
+                                  ColumnDefinitions="{StaticResource OrderColumnDefinitions}"
+                                  >
 
-                <Label Grid.Row="1"
-                 Grid.Column="3"
-                 HorizontalOptions="End"
-                 Text="Market"/>
+                                <Label Grid.Column="0"
+                                       Text="{Binding DateTime, StringFormat='\{0:d}'}"/>
 
-                <Label Grid.Row="2"
-                 Grid.Column="0"
-                 Text="01/01/19"/>
+                                <Label Grid.Column="1"
+                                       LineBreakMode="NoWrap"
+                                       Text="{Binding Symbol}"/>
 
-                <Label Grid.Row="2"
-                 Grid.Column="1"
-                 Text="MSFT"/>
+                                <Label Grid.Column="2"
+                                       HorizontalOptions="End"
+                                       LineBreakMode="NoWrap"
+                                       Text="{Binding FillPrice, Converter={StaticResource DefaultCurrencyConverter}}"/>
 
-                <Label Grid.Row="2"
-                 Grid.Column="2"
-                 HorizontalOptions="End"
-                 Text="84"/>
+                                <Label Grid.Column="3"
+                                       HorizontalOptions="End"
+                                       LineBreakMode="NoWrap"
+                                       Text="{Binding Quantity, Converter={StaticResource QuantityConverter}}"/>
 
-                <Label Grid.Row="2"
-                 Grid.Column="3"
-                 HorizontalOptions="End"
-                 Text="Market"/>
+                                <Label Grid.Column="4"  
+                                       HorizontalOptions="Start"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding OrderType}"/>
 
-            </Grid>
+                                <Label Grid.Column="5"  
+                                       HorizontalOptions="Start"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding Status}"/>
+                                
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
 
-            <view:HeaderView Text="History"/>
-            
-            <StackLayout Margin="5">
-                <Label HorizontalOptions="Center" Text="No orders available." />
-            </StackLayout>
+            </ListView>
 
         </StackLayout>
 

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LeanMobile.Algorithms;
+using LeanMobile.Data.Model;
 using LeanMobile.Data.Utils;
-using RemoteAlgorithmStatus = LeanMobile.Data.Remote.AlgorithmStatus;
+using AlgorithmStatus = LeanMobile.Data.Model.AlgorithmStatus;
 
 namespace LeanMobile.Data.Algorithm
 {
@@ -21,7 +22,7 @@ namespace LeanMobile.Data.Algorithm
         {
             var algorithms = new List<Algorithms.Algorithm>();
 
-            var remoteAlgorithmResponse = await _apiService.Api.GetLiveAlgorithmListAsync(RemoteAlgorithmStatus.Running);
+            var remoteAlgorithmResponse = await _apiService.Api.GetLiveAlgorithmListAsync(AlgorithmStatus.Running);
             var remoteProjectResponse = await _apiService.Api.GetProjectsAsync();
 
             remoteAlgorithmResponse.EnsureSuccess();
@@ -44,20 +45,20 @@ namespace LeanMobile.Data.Algorithm
 
                 switch (remoteAlgorithm.Status)
                 {
-                    case RemoteAlgorithmStatus.Completed:
-                        algorithm.Status = AlgorithmStatus.Completed;
+                    case AlgorithmStatus.Completed:
+                        algorithm.Status = Algorithms.AlgorithmStatus.Completed;
                         break;
 
-                    case RemoteAlgorithmStatus.Running:
-                        algorithm.Status = AlgorithmStatus.Running;
+                    case AlgorithmStatus.Running:
+                        algorithm.Status = Algorithms.AlgorithmStatus.Running;
                         break;
 
-                    case RemoteAlgorithmStatus.Liquidated:
-                        algorithm.Status = AlgorithmStatus.Liquidated;
+                    case AlgorithmStatus.Liquidated:
+                        algorithm.Status = Algorithms.AlgorithmStatus.Liquidated;
                         break;
 
-                    case RemoteAlgorithmStatus.Stopped:
-                        algorithm.Status = AlgorithmStatus.Stopped;
+                    case AlgorithmStatus.Stopped:
+                        algorithm.Status = Algorithms.AlgorithmStatus.Stopped;
                         break;
 
                     default:

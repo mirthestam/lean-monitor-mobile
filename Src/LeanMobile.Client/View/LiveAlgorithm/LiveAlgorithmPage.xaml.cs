@@ -18,6 +18,6 @@ namespace LeanMobile.Client.View.LiveAlgorithm
         public LiveAlgorithmPage()
         {
             InitializeComponent();
-        }        
+        }
     }
 }

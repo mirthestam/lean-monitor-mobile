@@ -30,10 +30,10 @@ namespace LeanMobile.Client.Controls
                 StrokeWidth = LineSize,
                 IsAntialias = true
             })
-            {                
+            {
                 var y = e.Info.Height / 2;
-                
-                var path = new SKPath();                
+
+                var path = new SKPath();
                 path.MoveTo(0, y);
                 path.LineTo(e.Info.Width, y);
 

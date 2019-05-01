@@ -8,7 +8,6 @@ namespace LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard
     {
         public MarketPanelViewModel(IObservable<AlgorithmResult> algorithmResults)
         {
-
         }
     }
 }

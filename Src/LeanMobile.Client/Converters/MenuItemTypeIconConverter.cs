@@ -12,13 +12,13 @@ namespace LeanMobile.Client.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var menuItemType = (MenuItemType) value;
+            var menuItemType = (MenuItemType)value;
 
             switch (menuItemType)
             {
                 case MenuItemType.Live:
                     return $"baseline_flash_on_24_{Theme}.png";
-                    
+
                 case MenuItemType.Projects:
                     return $"baseline_folder_24_{Theme}.png";
 
@@ -41,7 +41,7 @@ namespace LeanMobile.Client.Converters
                 {
                     case AppTheme.Dark:
                         return "dark";
-                        
+
                     case AppTheme.Light:
                         return "light";
 
@@ -51,6 +51,6 @@ namespace LeanMobile.Client.Converters
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => null;        
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => null;
     }
 }

@@ -8,6 +8,7 @@ using Android.Widget;
 using Android.OS;
 using LeanMobile.Client;
 using LeanMobile.Settings;
+using DLToolkit.Forms.Controls;
 
 namespace LeanMobile.Droid
 {
@@ -27,6 +28,7 @@ namespace LeanMobile.Droid
             base.OnCreate(savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             CarouselView.FormsPlugin.Android.CarouselViewRenderer.Init();
+            FlowListView.Init();
 
             SetTheme();
 

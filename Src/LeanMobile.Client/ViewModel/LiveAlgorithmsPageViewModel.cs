@@ -53,36 +53,36 @@ namespace LeanMobile.Client.ViewModel
         }
 
         private void RefreshAlgorithms()
-        {            
+        {
             _algorithmService.GetAlgorithms().Subscribe(algorithms =>
             {
-                    // Algorithm service might invoke multiple times.
-                    // First, it will fire for the cached data.
-                    // Second, it might fire with updated data retrieved from remote.
-                    algorithms = algorithms.OrderBy(a => a.Name);
+                // Algorithm service might invoke multiple times.
+                // First, it will fire for the cached data.
+                // Second, it might fire with updated data retrieved from remote.
+                algorithms = algorithms.OrderBy(a => a.Name);
 
-                    IsRefreshing = true;
+                IsRefreshing = true;
 
-                    try
+                try
+                {
+                    _algorithmService.ClearSubscriptions();
+
+                    Algorithms.Clear();
+
+                    foreach (var algorithm in algorithms)
                     {
-                        _algorithmService.ClearSubscriptions();
+                        var algorithmViewModel = new AlgorithmViewModel(algorithm, _algorithmService.AlgorithmResults.Where(r => r.AlgorithmId == algorithm.Id));
+                        Algorithms.Add(algorithmViewModel);
 
-                        Algorithms.Clear();
-
-                        foreach (var algorithm in algorithms)
-                        {
-                            var algorithmViewModel = new AlgorithmViewModel(algorithm, _algorithmService.AlgorithmResults.Where(r => r.AlgorithmId == algorithm.Id));
-                            Algorithms.Add(algorithmViewModel);
-
-                            // Request updates for this algoritm
-                            // We need this data to update primary statistics
-                            _algorithmService.Subscribe(algorithm.Id, ResultSubscriptionType.LiveResults);
-                        }
+                        // Request updates for this algoritm
+                        // We need this data to update primary statistics
+                        _algorithmService.Subscribe(algorithm.Id, ResultSubscriptionType.LiveResults);
                     }
-                    finally
-                    {
-                        IsRefreshing = false;
-                    }
+                }
+                finally
+                {
+                    IsRefreshing = false;
+                }
             });
         }
     }

@@ -10,11 +10,11 @@ namespace LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard
 
         public StatisticsPanelViewModel Statistics { get; set; }
 
-        public OpenOrdersPanelViewModel OpenOrders { get; set;}
+        public OpenOrdersPanelViewModel OpenOrders { get; set; }
 
-        public MarketPanelViewModel Market { get; set;}
+        public MarketPanelViewModel Market { get; set; }
 
-        public LastOrdersPanelViewModel LastOrders { get; set;}
+        public LastOrdersPanelViewModel LastOrders { get; set; }
 
         public DashboardViewViewModel(IObservable<AlgorithmResult> algorithmResults)
         {

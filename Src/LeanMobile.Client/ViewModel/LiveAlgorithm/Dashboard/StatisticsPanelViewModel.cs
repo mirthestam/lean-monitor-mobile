@@ -9,7 +9,7 @@ using Prism.Mvvm;
 namespace LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard
 {
     public class StatisticsPanelViewModel : BindableBase
-    {
+    {        
         public decimal Fees { get; set; } = 0;
 
         public decimal NetProfit { get; set; } = 0;
@@ -17,15 +17,17 @@ namespace LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard
         public decimal Return { get; set; } = 0;
 
         public StatisticsPanelViewModel(IObservable<AlgorithmResult> algorithmResults)
-        {            
-            algorithmResults.Select(r => r.Statistics).Subscribe(statistics =>
-            {
-                if (statistics == null) return;
+        {
+            algorithmResults
+                .Select(r => r.Statistics)
+                .Subscribe(statistics =>
+                {
+                    if (statistics == null) return;
 
-                Fees = statistics.Fees;
-                NetProfit = statistics.NetProfit;
-                Return = statistics.ReturnPercentage;
-            });
+                    Fees = statistics.Fees;
+                    NetProfit = statistics.NetProfit;
+                    Return = statistics.ReturnPercentage;
+                });
         }
     }
 }

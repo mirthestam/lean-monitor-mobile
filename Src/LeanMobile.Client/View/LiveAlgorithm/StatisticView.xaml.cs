@@ -9,18 +9,18 @@ using Xamarin.Forms.Xaml;
 
 namespace LeanMobile.Client.View.LiveAlgorithm
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     [ContentProperty("ValueContent")]
-	public sealed partial class StatisticView : ContentView
-	{
+    public sealed partial class StatisticView : ContentView
+    {
         public static readonly BindableProperty LabelProperty = BindableProperty.Create(nameof(Label), typeof(string), typeof(StatisticView));
 
         public static readonly BindableProperty ValueContentProperty = BindableProperty.Create(nameof(ValueContent), typeof(Xamarin.Forms.View), typeof(StatisticView));
 
-        public StatisticView ()
-		{
-			InitializeComponent ();            
-		}
+        public StatisticView()
+        {
+            InitializeComponent();
+        }
 
         public string Label
         {

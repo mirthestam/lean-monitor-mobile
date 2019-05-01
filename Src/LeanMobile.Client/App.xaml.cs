@@ -1,9 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Reactive;
 using System.Reactive.Linq;
 using Akavache;
-using Akavache.Sqlite3;
 using LeanMobile.Algorithms;
 using LeanMobile.Algorithms.Results;
 using LeanMobile.Authentication;
@@ -11,12 +9,10 @@ using LeanMobile.Client.View;
 using LeanMobile.Client.ViewModel;
 using LeanMobile.Client.Services;
 using LeanMobile.Client.View.LiveAlgorithm;
-using LeanMobile.Client.View.LiveAlgorithm.Dashboard;
-using LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard;
 using LeanMobile.Data;
 using LeanMobile.Data.Algorithm;
 using LeanMobile.Data.Authentication;
-using LeanMobile.Data.Remote.Factory;
+using LeanMobile.Data.Model.Factory;
 using LeanMobile.Settings;
 using Prism;
 using Prism.Ioc;
@@ -41,13 +37,13 @@ namespace LeanMobile.Client
             // Services
             containerRegistry.RegisterSingleton<ISettingsService, SettingsService>();
             containerRegistry.Register<IAuthenticationService, AuthenticationService>();
-            containerRegistry.Register<IAlgorithmService, AlgorithmService>();
+            containerRegistry.RegisterSingleton<IAlgorithmService, AlgorithmService>();
 
             // Data
             containerRegistry.Register<IAlgorithmRepository, AlgorithmRepository>();
-            containerRegistry.Register<IAlgorithmResultProvider, PollingAlgorithmResultProvider>();
+            containerRegistry.Register<IAlgorithmResultProvider, AlgorithmResultProvider>();
             containerRegistry.RegisterSingleton<IApiFactory, ApiFactory>();
-            containerRegistry.RegisterSingleton<IApiService, ApiService>();            
+            containerRegistry.RegisterSingleton<IApiService, ApiService>();
             containerRegistry.RegisterInstance(typeof(IObjectBlobCache), BlobCache.LocalMachine);
 
             // Views
@@ -57,7 +53,7 @@ namespace LeanMobile.Client
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<LiveAlgorithmsPage, LiveAlgorithmsPageViewModel>();
-            containerRegistry.RegisterForNavigation<LiveAlgorithmPage, LiveAlgorithmPageViewModel>();   
+            containerRegistry.RegisterForNavigation<LiveAlgorithmPage, LiveAlgorithmPageViewModel>();
         }
 
         protected override void OnSleep()

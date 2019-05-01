@@ -8,6 +8,7 @@
     <ResourceDictionary Source="ColorsDictionary.xaml"/>
     
     <converters:DecimalDefaultCurrencyConverter x:Key="DefaultCurrencyConverter"/>
+    <converters:QuantityConverter x:Key="QuantityConverter" />
 
     <utils:NameOfConverter x:Key="NameOfConverter"/>
 

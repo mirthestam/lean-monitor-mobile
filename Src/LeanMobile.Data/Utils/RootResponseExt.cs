@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using LeanMobile.Data.Remote.Responses;
+using LeanMobile.Data.Model.Responses;
 
 namespace LeanMobile.Data.Utils
 {

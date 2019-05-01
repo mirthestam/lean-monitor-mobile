@@ -8,12 +8,9 @@
              >
     <ContentPage.Content>
         <StackLayout Spacing="0">
-
-            <!-- Primary statistics -->
-            <livealgorithm:PrimaryStatisticsView/>
             
             <!-- Orders -->
-            <orders:OrdersView/>
+            <orders:OrdersView BindingContext="{Binding Path=Orders}"/>
 
         </StackLayout>
     </ContentPage.Content>

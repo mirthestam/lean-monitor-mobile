@@ -10,7 +10,7 @@ namespace LeanMobile.Client.Utils
     {
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            Debug.WriteLine(string.Format(culture, "Convert: Value={0}, TargetType={1}, Parameter={2}, Culture={3}",value, targetType, parameter, culture));
+            Debug.WriteLine(string.Format(culture, "Convert: Value={0}, TargetType={1}, Parameter={2}, Culture={3}", value, targetType, parameter, culture));
             return value;
         }
 

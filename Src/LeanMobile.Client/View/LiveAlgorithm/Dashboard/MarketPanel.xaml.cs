@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace LeanMobile.Client.View.LiveAlgorithm.Dashboard
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class MarketPanel : ContentView
-	{
-		public MarketPanel ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MarketPanel : ContentView
+    {
+        public MarketPanel()
+        {
+            InitializeComponent();
+        }
+    }
 }

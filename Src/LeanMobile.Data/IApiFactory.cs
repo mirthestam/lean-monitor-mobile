@@ -1,4 +1,4 @@
-﻿using LeanMobile.Data.Remote;
+﻿using LeanMobile.Data.Model;
 
 namespace LeanMobile.Data
 {

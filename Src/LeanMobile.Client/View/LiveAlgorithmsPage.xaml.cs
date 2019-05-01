@@ -10,12 +10,12 @@ using Xamarin.Forms.Xaml;
 
 namespace LeanMobile.Client.View
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LiveAlgorithmsPage : ContentPage
-	{
-		public LiveAlgorithmsPage ()
-		{
-			InitializeComponent ();
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LiveAlgorithmsPage : ContentPage
+    {
+        public LiveAlgorithmsPage()
+        {
+            InitializeComponent();
         }
     }
 }

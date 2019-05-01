@@ -9,7 +9,7 @@ namespace LeanMobile.Client.Extensions
     {
         // Concept of theming based upon Theme Extension written by Winston Gubantes
         // https://github.com/winstongubantes/Xamarin.Forms
-        
+
         public T Light { get; set; } = default(T);
 
         public T Dark { get; set; } = default(T);
@@ -22,10 +22,10 @@ namespace LeanMobile.Client.Extensions
                 {
                     case AppTheme.Dark:
                         return Dark;
-                        
+
                     case AppTheme.Light:
                         return Light;
-                    
+
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

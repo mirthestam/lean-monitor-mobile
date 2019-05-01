@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace LeanMobile.Client.View.LiveAlgorithm
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class PrimaryStatisticsView : ContentView
-	{
-		public PrimaryStatisticsView ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class PrimaryStatisticsView : ContentView
+    {
+        public PrimaryStatisticsView()
+        {
+            InitializeComponent();
+        }
+    }
 }

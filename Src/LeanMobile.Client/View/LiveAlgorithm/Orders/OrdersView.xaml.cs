@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace LeanMobile.Client.View.LiveAlgorithm.Orders
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OrdersView : ContentView
-	{
-		public OrdersView ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class OrdersView : ContentView
+    {
+        public OrdersView()
+        {
+            InitializeComponent();
+        }
+    }
 }

@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeanMobile.Data", "LeanMobi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeanMobile.Client", "LeanMobile.Client\LeanMobile.Client.csproj", "{CAA60DEE-533C-4781-A7CC-2A145475CCC1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2CB74C4B-C9BB-4FDB-8B79-DCC5B33564B4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiTool", "Tools\ApiTool\ApiTool.csproj", "{48460EF2-0EEF-4C71-AE8B-70EE1F366521}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{212633C6-4D69-4990-8252-7F34D4A6B9D1}"
