@@ -53,25 +53,18 @@ namespace LeanMobile.Client.ViewModel
             }
         }
 
-        public override void OnSleep()
-        {
-            Unsubscribe();
-        }
+        public override void OnSleep() => Unsubscribe();
 
-        public override void OnResume()
-        {
-            Subscribe();
-        }
+        public override void OnResume() => Subscribe();
 
         private void Subscribe()
         {
-            // TODO: Subscribe to this algorithm
             _algorithmService.Subscribe(_algorithmId, ResultSubscriptionType.LiveResults | ResultSubscriptionType.Log);
         }
 
         private void Unsubscribe()
         {
-            _algorithmService.ClearSubscriptions();
+            _algorithmService.UnsubscribeAll();
         }
 
         private void RefreshAlgorithm()

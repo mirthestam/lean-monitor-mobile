@@ -13,29 +13,37 @@ namespace LeanMobile.Client.ViewModel.LiveAlgorithm.Orders
     {
         public ObservableCollection<Order> Orders { get; set; } = new ObservableCollection<Order>();
 
+        public DateTime DateUpdated { get; set; }
+
         public OrdersViewViewModel(IObservable<AlgorithmResult> algorithmResults)
         {
             algorithmResults
                 .Select(r => r.Orders)
-                .SelectMany(o => o.Items.OrderBy(i => i.DateTime))
-                .Subscribe(o =>
+                .Subscribe(orderResult =>
                 {
-                    if (o == null) return;
+                    if (orderResult == null) return;
 
-                    var existingOrder = Orders.SingleOrDefault(i => i.Id == o.Id);
-                    if (existingOrder != null)
+                    DateUpdated = orderResult.DateUpdated;
+
+                    foreach (var o in orderResult.Items)
                     {
-                        // Update the order
-                        existingOrder.DateTime = o.DateTime;
-                        existingOrder.FillPrice = o.FillPrice;
-                        existingOrder.Quantity = o.Quantity;
-                        existingOrder.Status = o.Status;
-                    }
-                    else
-                    {
-                        // This is a new order
-                        // TODO: This will fail in order when  multiple new orders are present
-                        Orders.Insert(0, o);
+                        if (o == null) return;
+
+                        var existingOrder = Orders.SingleOrDefault(i => i.Id == o.Id);
+                        if (existingOrder != null)
+                        {
+                            // Update the order
+                            existingOrder.DateTime = o.DateTime;
+                            existingOrder.FillPrice = o.FillPrice;
+                            existingOrder.Quantity = o.Quantity;
+                            existingOrder.Status = o.Status;
+                        }
+                        else
+                        {
+                            // This is a new order
+                            // TODO: This will fail in order when  multiple new orders are present
+                            Orders.Insert(0, o);
+                        }
                     }
                 });
         }

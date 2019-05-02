@@ -19,6 +19,8 @@
 
         <StackLayout>
 
+            <Label Text="{Binding DateUpdated, StringFormat='Updated {0:f}'}"/>
+
             <ListView ItemsSource="{Binding Orders}"
                       CachingStrategy="RecycleElement"                      
                       SelectionMode="None"

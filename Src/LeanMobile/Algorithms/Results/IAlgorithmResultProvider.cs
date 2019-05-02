@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace LeanMobile.Algorithms.Results
 {
@@ -7,11 +8,8 @@ namespace LeanMobile.Algorithms.Results
         event EventHandler<AlgorithmResultEventArgs> AlgorithmResultReceived;
 
         void Run();
-        void Abort();
 
-        void Subscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType);
-
-        void Unsubscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType = ResultSubscriptionType.All);
+        Task Subscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType);
 
         void ClearSubscriptions();
     }

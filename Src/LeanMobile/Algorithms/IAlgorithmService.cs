@@ -15,6 +15,6 @@ namespace LeanMobile.Algorithms
 
         void Subscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType);
 
-        void ClearSubscriptions();
+        void UnsubscribeAll();
     }
 }

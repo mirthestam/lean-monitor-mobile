@@ -7,5 +7,7 @@ namespace LeanMobile.Algorithms.Results
     public abstract class AlgorithmResultBase
     {
         public DateTime DateUpdated { get; set; } = DateTime.MinValue;
+
+        public void Updated() => DateUpdated = DateTime.UtcNow;
     }
 }

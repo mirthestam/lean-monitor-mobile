@@ -65,7 +65,7 @@ namespace LeanMobile.Client.ViewModel
 
                 try
                 {
-                    _algorithmService.ClearSubscriptions();
+                    _algorithmService.UnsubscribeAll();
 
                     Algorithms.Clear();
 
@@ -76,7 +76,8 @@ namespace LeanMobile.Client.ViewModel
 
                         // Request updates for this algoritm
                         // We need this data to update primary statistics
-                        _algorithmService.Subscribe(algorithm.Id, ResultSubscriptionType.LiveResults);
+                        //_algorithmService.Subscribe(algorithm.Id, ResultSubscriptionType.LiveResults);
+                        // TODO: Updates should be started / stopped when navigating to / from the page.
                     }
                 }
                 finally

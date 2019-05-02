@@ -14,12 +14,14 @@ namespace LeanMobile.Client.ViewModel.LiveAlgorithm.Dashboard
         public OpenOrdersPanelViewModel(IObservable<AlgorithmResult> algorithmResults)
         {
             algorithmResults
-                .Select(r => r.Orders.Items)
+                .Select(r => r.Orders)
                 .Subscribe(o =>
                 {
+                    if (o == null) return;
+
                     var seenOrders = new List<int>();
 
-                    foreach (var order in o)
+                    foreach (var order in o.Items)
                     {
                         // todo: update existing order
                         // or add if new

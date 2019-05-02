@@ -6,8 +6,6 @@ namespace LeanMobile.Algorithms.Results
 {
     public class AlgorithmResult
     {
-        public DateTime TimeStamp { get; set;}
-
         public AlgorithmId AlgorithmId { get; set; }
 
         [AllowNull]

@@ -21,7 +21,7 @@ namespace LeanMobile.Algorithms
             _algorithmResultProvider = algorithmResultProvider;
             _cache = cache;
 
-            _algorithmResultProvider.Run(); // TODO: should not always run
+            _algorithmResultProvider.Run();
 
             CreateResultObservable();
         }
@@ -52,6 +52,6 @@ namespace LeanMobile.Algorithms
 
         public void Subscribe(AlgorithmId algorithmId, ResultSubscriptionType resultSubscriptionType) => _algorithmResultProvider.Subscribe(algorithmId, resultSubscriptionType);
 
-        public void ClearSubscriptions() => _algorithmResultProvider.ClearSubscriptions();
+        public void UnsubscribeAll() => _algorithmResultProvider.ClearSubscriptions();
     }
 }

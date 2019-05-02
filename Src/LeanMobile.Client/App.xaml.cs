@@ -37,7 +37,7 @@ namespace LeanMobile.Client
             // Services
             containerRegistry.RegisterSingleton<ISettingsService, SettingsService>();
             containerRegistry.Register<IAuthenticationService, AuthenticationService>();
-            containerRegistry.RegisterSingleton<IAlgorithmService, AlgorithmService>();
+            containerRegistry.Register<IAlgorithmService, AlgorithmService>();
 
             // Data
             containerRegistry.Register<IAlgorithmRepository, AlgorithmRepository>();
