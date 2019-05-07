@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NodaTime" Version="3.0.0-alpha01" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\LeanMobile.Data\LeanMobile.Data.csproj" />
   </ItemGroup>
 

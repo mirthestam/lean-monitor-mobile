@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="akavache" Version="6.4.1" />
+    <PackageReference Include="NodaTime" Version="3.0.0-alpha01" />
     <PackageReference Include="NullGuard.Fody" Version="1.8.7" />
     <PackageReference Include="System.Reactive" Version="4.0.0" />
   </ItemGroup>

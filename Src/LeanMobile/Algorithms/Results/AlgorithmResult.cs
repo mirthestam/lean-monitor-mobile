@@ -19,5 +19,8 @@ namespace LeanMobile.Algorithms.Results
 
         [AllowNull]
         public Log Log { get; set; }
+
+        [AllowNull]
+        public List<ChartPoint> EquityChart { get; set; }
     }
 }

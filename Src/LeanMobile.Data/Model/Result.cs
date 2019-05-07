@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using NullGuard;
 
 namespace LeanMobile.Data.Model
@@ -23,6 +24,9 @@ namespace LeanMobile.Data.Model
 
         [AllowNull]
         public IList<Order> Orders { get; set; }
+
+        [AllowNull]
+        public IDictionary<string, Chart> Charts { get; set; }
 
         [AllowNull]
         public IDictionary<DateTime, decimal> ProfitLoss { get; set; }
