@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="launcher_background">#222222</color>
-    
-    <color name="colorPrimary">#000000</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+  <color name="launcher_background">#222222</color>
 
-    <color name="ColorActivatedHighlightLight">#F5F5F5</color>
-    <color name="ColorActivatedHighlightDark">#464545</color>
-    
-    <color name="windowBackgroundDark">#222222</color>
-    <color name="windowBackgroundLight">#FFFFFF</color>
+  <color name="colorPrimary">#000000</color>
+  <color name="colorPrimaryDark">#303F9F</color>
+
+  <color name="ColorActivatedHighlightLight">#F5F5F5</color>
+  <color name="ColorActivatedHighlightDark">#464545</color>
+
+  <color name="windowBackgroundDark">#222222</color>
+  <color name="windowBackgroundLight">#FFFFFF</color>
+  <color name="windowBackgroundLauncher">#222222</color>
 
 </resources>

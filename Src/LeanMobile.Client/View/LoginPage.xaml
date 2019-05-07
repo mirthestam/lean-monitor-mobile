@@ -9,17 +9,44 @@
              prism:ViewModelLocator.AutowireViewModel="True">
 
     <ContentPage.Resources>
+
+        <Style x:Key="IconStyle" TargetType="Image">
+            <Setter Property="Source" Value="Lean_100_light.png"/>
+            <Setter Property="WidthRequest" Value="100"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="0,200,0,0">
-                       
-            <Entry Placeholder="User ID"
-                   Text="{Binding UserToken}"/>
-            <Entry Placeholder="Access token"
-                   Text="{Binding AccessToken}"/>
-            <Button Text="Login"
-                    Command="{Binding LoginCommand}"/>
-        </StackLayout>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="75*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Logo -->
+            <Image Grid.Row="0"
+                   Style="{StaticResource IconStyle}"/>
+
+            <!-- Login Form-->
+            <StackLayout Grid.Row="1"
+                         Spacing="20"
+                         Padding="0,0,0,0">
+               
+                <Entry Placeholder="User ID"
+                       Text="{Binding UserToken}"/>
+                
+                <Entry Placeholder="Access token"
+                       Text="{Binding AccessToken}"/>
+                
+                <Button Text="Login"
+                        Command="{Binding LoginCommand}"/>
+            </StackLayout>
+
+
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

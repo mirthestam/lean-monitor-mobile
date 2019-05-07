@@ -179,7 +179,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\baseline_work_24_light.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\launch_screen.xml" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\baseline_flash_on_24_dark.png" />
   </ItemGroup>

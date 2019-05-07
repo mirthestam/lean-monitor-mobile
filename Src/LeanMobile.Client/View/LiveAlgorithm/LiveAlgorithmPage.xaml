@@ -17,10 +17,10 @@
     </TabbedPage.ToolbarItems>
 
     <TabbedPage.Children>
-        <dashboard:DashboardPage/>
-        <holdings:HoldingsPage/>
-        <orders:OrdersPage/>
-        <log:LogPage/>
+        <dashboard:DashboardPage Icon="baseline_dashboard_24_dark.png"/>
+        <holdings:HoldingsPage Icon="baseline_work_24_dark.png"/>
+        <orders:OrdersPage Icon="baseline_swap_horiz_24_dark.png"/>
+        <log:LogPage Icon="baseline_folder_24_dark.png"/>
     </TabbedPage.Children>
          
     <!--<ContentPage.Content>

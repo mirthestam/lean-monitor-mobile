@@ -15,9 +15,10 @@ namespace LeanMobile.Droid
     [Activity(
         Label = "Lean Mobile",
         Icon = "@mipmap/icon",
-        Theme = "@style/MainTheme.Light",
+        Theme = "@style/MainTheme.Dark",
         MainLauncher = true,
-        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+        ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
