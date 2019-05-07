@@ -13,7 +13,7 @@ using DLToolkit.Forms.Controls;
 namespace LeanMobile.Droid
 {
     [Activity(
-        Label = "LeanMobile",
+        Label = "Lean Mobile",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme.Light",
         MainLauncher = true,
