@@ -17,8 +17,8 @@ namespace ApiTool
 
         public async Task Run()
         {
-            const string authUserToken = "***REMOVED***";
-            const string authAccessToken = "***REMOVED***";
+            const string authUserToken = "";
+            const string authAccessToken = "";
             const string endpointAddress = "https://www.quantconnect.com/api/v2";
 
             //const int projectId = 2416667;
